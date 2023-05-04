@@ -1,0 +1,12 @@
+.ingredient_icon {
+    width: 40px;
+    margin-top: 5px;
+}
+
+.ingredient_name {
+    font-size: 18px;
+}
+
+.ingredient_amount {
+    font-size: 15px;
+}
