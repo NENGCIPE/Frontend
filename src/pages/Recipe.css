@@ -1,0 +1,111 @@
+.Recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title,
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .page_name {
+    font-size: 40px;
+    margin-bottom: -50px;
+  }
+  
+  .dish_name {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 1000px; /* image 높이 지정 */
+  }
+  
+  .image-container img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+  }
+  
+  .dish_detail {
+    background-color: #5A5856;
+    padding: 20px;
+    color: white;
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  .dish_detail h2 {
+    font-size: 25px;
+    margin: 0 0 10px 0;
+  }
+  
+  .dish_detail p {
+    font-size: 15px;
+    margin: 0 0 10px 0;
+  }
+  
+  .buttons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0px;
+    height: 100%;
+    /*width: 120px; 버튼들의 너비를 줄여줌 
+    height: 170px; /* 버튼들의 높이를 줄여줌 */
+  }
+  
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transform: scale(0.07); /* 버튼 크기 8배 줄임 */
+  }
+  
+  .accordion {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 10px; /* 아코디언 창의 높이를 줄여줌 */
+  }
+  
+  .accordion img {
+    transform: scale(0.07);
+  }
+  
+  .heart-count {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: white;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  

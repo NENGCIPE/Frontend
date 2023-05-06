@@ -7,8 +7,10 @@ import { BsSearch } from "react-icons/bs";
 import IngredientBox from '../components/IngredientBox';
 import Card from '../components/Card';
 import Webcam from 'react-webcam';
+import { useNavigate } from "react-router-dom"; //유지 추가
 
 function Nengjanggo() {
+    const navigate = useNavigate(); //유지 추가
     const [modalVisible, setModalVisible] = useState(false);
 
     return (
@@ -94,7 +96,7 @@ function Nengjanggo() {
                     <button className='btn_addfood'>+</button>
                 </div>
                 <div className='recipe_list'>
-                    <div className='recipe_container'>
+                    <div className='recipe_container' onClick={() => navigate("/recipe")}>  
                         <Card title={"떡갈비"} scrap={"13"} />
                         <div className='recipe_descript'>
                             <div className='recipe_title'>재료</div>
@@ -103,7 +105,7 @@ function Nengjanggo() {
                             </div>
                         </div>
                     </div>
-                    <div className='recipe_container'>
+                    <div className='recipe_container' onClick={() => navigate("/recipe")}>
                         <Card title={"떡갈비"} scrap={"13"} />
                         <div className='recipe_descript'>
                             <div className='recipe_title'>재료</div>
@@ -112,7 +114,7 @@ function Nengjanggo() {
                             </div>
                         </div>
                     </div>
-                    <div className='recipe_container'>
+                    <div className='recipe_container' onClick={() => navigate("/recipe")}>
                         <Card title={"떡갈비"} scrap={"13"} />
                         <div className='recipe_descript'>
                             <div className='recipe_title'>재료</div>
