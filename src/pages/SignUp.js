@@ -34,7 +34,7 @@ function SignUp() {
         })
             .then((response) => response.json())
             .then((result) => {
-                if (result.code === 200) {
+                if (result.code === 201) {
                     alert("회원가입이 완료되었습니다.")
                     navigate('/login');
                 }; 
