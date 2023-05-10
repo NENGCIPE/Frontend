@@ -11,24 +11,33 @@ function SignUp() {
 
     const signUp = (e) => {
         e.preventDefault();
-        fetch("https://nengcipe-server.store/api/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                memberName: name,
-                memberId: email,
-                password: password,
-            }),
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result.code === 201) {
-                    alert("회원가입이 완료되었습니다.")
-                    navigate('/login');
-                }; 
-            });
+        if (email === "" || password === "" || chkpassword === "" || name === "") {
+            alert("모든 정보를 입력해주세요");
+        }
+        else if (password !== chkpassword) {
+            alert("비밀번호가 동일하지 않습니다");
+        }
+        else {
+            
+            fetch("https://nengcipe-server.store/api/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    memberName: name,
+                    memberId: email,
+                    password: password,
+                }),
+            })
+                .then((response) => response.json())
+                .then((result) => {
+                    if (result.code === 201) {
+                        alert("회원가입이 완료되었습니다.")
+                        navigate('/login');
+                    };
+                });
+        }
     }
 
     return (
@@ -52,7 +61,7 @@ function SignUp() {
                         <div>
                             <button onClick={signUp} className='btn_signup'>가입하기</button>
                         </div>
-                        <p>계정이 있으신가요 <a className='txt_gologin' href='/login'>로그인</a></p>
+                        <p>계정이 있으신가요? <a className='txt_gologin' href='/login'>로그인</a></p>
                     </form>
                 </div>
             </div>
