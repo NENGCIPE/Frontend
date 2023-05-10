@@ -6,6 +6,12 @@
         url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
 
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .home_container {
     display: flex;
     flex-direction: column;
@@ -14,42 +20,57 @@
 }
 
 .home_section1 {
-    width: 100%;
-    height: 1000px;
+    width: 1600px;
+    height: 800px;
     background-image: url('/public/assets/nengcipe_info.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .home_intro {
-    width: 800px;
-    height: 1000px;
+    width: 600px;
+    height: 800px;
     background-color: rgb(0, 0, 0, 0.4) ;
-    position: absolute;
+    display: flex;
+    justify-content: center;
 }
 
 .nengcipe_info {
-    margin-left: 150px;
     color: white;
     font-size: 35px;
 }
 
+.nengcipe_info_script {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nengcipe_info_context {
+    font-size: 20px;
+}
+
+.nengcipe_info_btn {
+    display: flex;
+    justify-content: center;
+}
+
 .btn_nengcipe {
-    width: 400px;
-    height: 100px;
+    width: 250px;
+    height: 70px;
     margin-top: 70px;
-    font-size: 30px;
+    font-size: 25px;
+    font-weight: 600;
     border: 1px solid white;
     border-radius: 10px;
     background-color: white;
     font-family: 'Noto Sans KR';
-    font-weight: 600;
     cursor: pointer;
 }
 
 .home_section2 {
-    width: 100%;
-    height: 1200px;
+    width: 1600px;
+    height: 1000px;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -57,57 +78,91 @@
 }
 
 .home_image {
-    height: 700px;
+    height: 500px;
     margin-right: 400px;
 }
 
 .home_section2_intro {
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Noto Sans KR';
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .home_section3 {
-    width: 100%;
-    height: 1400px;
+    width: 1600px;
+    height: 800px;
     background-image: url('/public/assets/home_image2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    align-items: center;
 }
 
-.home_section3_intro {
-    width: 1000px;
-    height: 500px;
-    margin-left: 500px;
+.home_section3_intro_context {
+    width: 1600px;
+    height: 800px;
     background-color: rgb(0, 0, 0, 0.4) ;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
-    font-size: 70px;
+    text-align: center;
+    font-size: 50px;
     font-family: 'Noto Sans KR';
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .home_section4 {
-    width: 100%;
-    height: 1000px;
-    background-color: white;
+    width: 1600px;
+    height: 1100px;
+    margin-bottom: 50px;
+}
+
+.home_section4_intro {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    margin-bottom: 150px;
+}
+
+.home_section4_intro_below {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+}
+
+.home_section4_img {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.home_section4_intro {
-    font-size: 150px;
-    font-family: 'Noto Sans KR';
-    font-weight: 700;
-}
-
 .recipe_image {
     width: 400px;
-    margin: 0 100px;
+    margin: 0 20px;
+    margin-bottom: 50px;
+}
 
+.home_section4_intro_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.home_section4_btn_nengcipe {
+    width: 250px;
+    height: 70px;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Noto Sans KR';
+    font-size: 25px;
+    font-weight: 600;
+    border: 1px solid #8da4d0;
+    border-radius: 10px;
+    background-color: #8da4d0;
+    cursor: pointer;
 }

@@ -1,18 +1,8 @@
 import React, { useState } from 'react';
 import './SignUp.css'
-import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
 
-const options = [
-    { value: 1, label: '1' },
-    { value: 2, label: '2' },
-    { value: 3, label: '3' },
-    { value: 4, label: '4' },
-    { value: 5, label: '5' },
-];
-
 function SignUp() {
-    const [selectedOption, setSelectedOption] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [chkpassword, setChkPassword] = useState("");
@@ -58,46 +48,6 @@ function SignUp() {
                         </div>
                         <div>
                             <input className='signup_input' value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='닉네임' />
-                        </div>
-                        <div className='status_container'>
-                            <h1>맛 선호도</h1>
-                            <div className='status'>
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='단맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='신맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='짠맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='기름진맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='매운맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                            </div>
                         </div>
                         <div>
                             <button onClick={signUp} className='btn_signup'>가입하기</button>

@@ -43,7 +43,7 @@ return (
                     <div>
                         <button onClick={logIn} className='btn_login'>로그인</button>
                     </div>
-                    <p>회원이 아니신가요 <a className='txt_gosignup' href='/signup'>회원가입</a></p>
+                    <p>회원이 아니신가요? <a className='txt_gosignup' href='/signup'>회원가입</a></p>
                     <div>
                         <img className='btn_kakao' src='../assets/kakao_login.png' alt='카카오로그인' />
                     </div>
