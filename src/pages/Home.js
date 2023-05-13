@@ -69,7 +69,7 @@ function Home() {
                         <p className='home_section_txt'>냉시피로 지금 만들 수 있는 음식을 찾아보세요</p>
                     </div>
                     <div className='home_section4_intro_btn'>
-                        <button className='home_section4_btn_nengcipe'>냉시피 시작하기</button>
+                        <button className='home_section4_btn_nengcipe' onClick={chkAuth}>냉시피 시작하기</button>
                     </div>
                 </div>
             </div>

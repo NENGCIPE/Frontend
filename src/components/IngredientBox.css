@@ -1,6 +1,16 @@
+.ingredient_remove {
+    position: absolute;
+    margin-left: 100px;
+    margin-bottom: 150px;
+}
+
+.ingredient_icon_remove {
+    width: 20px;
+    cursor: pointer;
+}
+
 .ingredient_icon {
     width: 40px;
-    margin-top: 5px;
 }
 
 .ingredient_name {

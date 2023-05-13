@@ -4,14 +4,15 @@ import './IngredientBox.css'
 
 const Container = styled.div`
     width: 100px;
-    height: 140px;
+    height: 150px;
     border: 3px solid ${props => props.color};
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;   
-    text-align: center;     
+    text-align: center;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2); 
 `;
 
 const Date = styled.div`
@@ -27,6 +28,9 @@ const Date = styled.div`
 function IngredientBox({ icon, name, amount, date, color }) {
     return (
         <Container color={color}>
+            <div className='ingredient_remove'>
+                <img onClick={() => {console.log('delete')}} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='삭제'/>
+            </div>
             <div className='ingredient_icon_container'>
                 <img className='ingredient_icon' src={icon} alt='아이콘' />
             </div>

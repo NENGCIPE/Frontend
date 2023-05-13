@@ -36,6 +36,9 @@ function SignUp() {
                         alert("회원가입이 완료되었습니다.")
                         navigate('/login');
                     };
+                    if (result.code === 409) {
+                        alert("아이디가 중복됩니다.")
+                    };
                 });
         }
     }
