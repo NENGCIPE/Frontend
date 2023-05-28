@@ -1,0 +1,276 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+    src: url('/public/fonts/NotoSansKR-Regular.otf') format('woff2'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('woff'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
+}
+
+.MYPGAGE {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 0px;
+}
+
+.mypage_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+
+.MYPAGE_container {
+    width: 1600px;
+    height: 800px;
+    margin-top: 70px;
+    font-size: 25px;
+    font-weight: 1000;
+    border: 1px solid rgb(63, 63, 63);
+    shape-outside: 100 solid rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(197, 197, 197);
+    font-family: 'Noto Sans KR';
+}
+
+.info_container_1{
+    width: 400px;
+    height: 700px;
+    margin-top: 50px;
+    margin-left: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    shape-outside: 100 solid rgb(0, 0, 0) #dadce0 inset;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Noto Sans KR';
+}
+.info_container_2{
+    width: 1050px;
+    height: 700px;
+    margin-top: -410px;
+    margin-left: 450px;
+    border: 1px solid rgb(255, 255, 255);
+    shape-outside: 100 solid rgb(0, 0, 0) #dadce0 inset;
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+    font-family: 'Noto Sans KR';
+}
+
+
+.name {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.User_name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+.Email {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 50px;
+}
+
+.User_Email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 20px;
+}
+.navigate_editMyinfo {
+    width: 150px;
+    height: 40px;
+    margin-top: 440px;
+    margin-left: 850px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgb(214, 214, 214);
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    align-items: right;
+    background-color: rgb(204, 204, 204);
+    font-family: 'Noto Sans KR';
+    cursor: pointer;
+}
+
+
+.nengcipe_info {
+    color: white;
+    font-size: 35px;
+}
+
+.nengcipe_info_script {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nengcipe_info_context {
+    font-size: 20px;
+}
+
+.nengcipe_info_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_nengcipe {
+    width: 250px;
+    height: 70px;
+    margin-top: 70px;
+    font-size: 25px;
+    font-weight: 600;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+    font-family: 'Noto Sans KR';
+    cursor: pointer;
+}
+
+.MYPAGE_section2 {
+    width: 1600px;
+    height: 1000px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.MYPAGE_image {
+    height: 500px;
+    margin-right: 400px;
+}
+
+.MYPAGE_section2_intro {
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+}
+
+.MYPAGE_section3 {
+    width: 1600px;
+    height: 800px;
+    background-image: url('/public/assets/home_image2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.MYPAGE_section3_intro_context {
+    width: 1600px;
+    height: 800px;
+    background-color: rgb(0, 0, 0, 0.4) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+}
+
+.MYPAGE_section4 {
+    width: 1600px;
+    height: 1100px;
+    margin-bottom: 0px;
+}
+
+.MYPAGE_section4_intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+.MYPAGE_section_txt_sub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+
+.MYPAGE_section4_intro_below {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+}
+
+.MYPAGE_section4_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe_image {
+    width: 400px;
+    margin: 0 20px;
+    margin-bottom: 50px;
+}
+
+.MYPAGE_section4_intro_btn {
+    display: flex;
+    justify-content: center;
+}
+
+.MYPAGE_section4_btn_nengcipe {
+    width: 250px;
+    height: 70px;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgb(214, 214, 214);
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    align-items: right;
+    background-color: rgb(204, 204, 204);
+    font-family: 'Noto Sans KR';
+    cursor: pointer;
+    
+}
+.recipe_container{
+    width: 250px;
+    height: 70px;
+   
+    justify-content: center;
+    color: white;
+    font-family: 'Noto Sans KR';
+    font-size: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
