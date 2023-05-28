@@ -48,7 +48,7 @@ function Recipe() {
                     <img src={`${process.env.PUBLIC_URL}/tteokgalbi.png`} alt="떡갈비" />
                     <h2>떡갈비</h2>
                     <div className="buttons">
-                        {/* <button onClick={toggleAccordion}>
+                        <button onClick={toggleAccordion}>
                             <img src={`${process.env.PUBLIC_URL}/share.png`} alt="공유" />
                         </button>
                         {isAccordionOpen && (
@@ -60,7 +60,7 @@ function Recipe() {
                         <button onClick={toggleHeart}>
                             <img src={`${process.env.PUBLIC_URL}/${ isHeartFull ? 'heart_full' : 'heart_empty'}.png`} alt="하트"/>
                             <span className="heart-count">{heartCount}</span>
-                        </button> */}
+                        </button>
                     </div>
                     <p>재료</p>
                     <h3>레시피 설명</h3>
