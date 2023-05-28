@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import './IngredientBox.css'
+import axios from 'axios';
 
 const Container = styled.div`
     width: 100px;
@@ -25,11 +26,18 @@ const Date = styled.div`
     color: white;
 `;
 
-function IngredientBox({ icon, name, amount, date, color }) {
+function IngredientBox({ icon, id, name, amount, date, color }) {
+    const removeIngred = (id) => {
+        axios.delete(`https://nengcipe-server.store/api/users/fridge?id=${id}`, { headers: {Authorization: sessionStorage.getItem('jwt')} })
+            .then(response => {
+                console.log(response)
+            })
+    }
+
     return (
         <Container color={color}>
             <div className='ingredient_remove'>
-                <img onClick={() => {console.log('delete')}} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='삭제'/>
+                <img onClick={() => removeIngred(id)} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='삭제'/>
             </div>
             <div className='ingredient_icon_container'>
                 <img className='ingredient_icon' src={icon} alt='아이콘' />

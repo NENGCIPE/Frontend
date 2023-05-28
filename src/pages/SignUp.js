@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './SignUp.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function SignUp() {
     const [email, setEmail] = useState("");
@@ -18,28 +19,22 @@ function SignUp() {
             alert("비밀번호가 동일하지 않습니다");
         }
         else {
-            
-            fetch("https://nengcipe-server.store/api/users", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    memberName: name,
-                    memberId: email,
-                    password: password,
-                }),
-            })
-                .then((response) => response.json())
-                .then((result) => {
-                    if (result.code === 201) {
-                        alert("회원가입이 완료되었습니다.")
+            const userBody = {
+                memberName: name,
+                memberId: email,
+                password: password,
+            }
+            axios.post("https://nengcipe-server.store/api/users", userBody)
+                .then(data => {
+                    if (data.status === 201) {
+                        alert("회원가입이 완료되었습니다.");
                         navigate('/login');
-                    };
-                    if (result.code === 409) {
-                        alert("아이디가 중복됩니다.")
-                    };
-                });
+                    }
+                }).catch(response => {
+                    if (response.response.status === 409) {
+                        alert("이미 존재하는 아이디입니다.");
+                    }
+                })
         }
     }
 

@@ -40,9 +40,9 @@ function Header() {
                 </div>
                 <div className='header_menu'>
                     <div><a href='/'>Home</a></div>
-                    <div><a href='/nengjanggo'>Nengcipe</a></div>
+                    <div><a href={isLogin ? '/nengjanggo' : '/login'}>Nengcipe</a></div>
                     <div><a href='/recommend'>Recommend</a></div>
-                    <div><a href='/scrap'>Scrap</a></div>
+                    <div><a href={isLogin ? '/scrap' : '/login'}>Scrap</a></div>
                 </div>
                 <div className='header_nav'>
                     <div className='header_option'>

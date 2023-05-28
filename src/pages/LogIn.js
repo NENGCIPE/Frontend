@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './LogIn.css'
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function LogIn() {
     const navigate = useNavigate();
@@ -12,30 +13,24 @@ function LogIn() {
             alert("이메일과 비밀번호가 입력되었는지 확인해주세요")
         }
         else {
-            
-            fetch("https://nengcipe-server.store/api/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    memberId: email,
-                    password: password,
-                }),
-            })
-                .then((response) => response.json())
-                .then((result) => {
-                    if (result.code === 200) {
-                        const userToken = result.result.jwt;
+            const userBody = {
+                memberId: email,
+                password: password,
+            }
+            axios.post(`https://nengcipe-server.store/api/users/login`, userBody)
+                .then(data => {
+                    if (data.status === 200) {
+                        const userToken = data.data.result.jwt;
                         sessionStorage.setItem('jwt', userToken);
                         navigate('/');
-                    };
-                    if (result.code === 404) {
-                        alert("아이디 또는 비밀번호를 다시 확인해주세요.")
-                    };
-                });
+                    }
+                }).catch(response => {
+                    if (response.response.status === 404) {
+                        alert("아이디나 비밀번호를 다시 확인해주세요.");
+                    }
+                })
+                
         }
-
     }
 
     return (
