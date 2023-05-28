@@ -1,0 +1,68 @@
+.list_container {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.input_container {
+    margin: 0 10px;
+}
+
+.input_count {
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_amount {
+    cursor: pointer;
+}
+
+.item_amount {
+    margin: 0 10px;
+}
+
+.select_location {
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    font-size: 15px;
+}
+
+.select_category {
+    width: 110px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    font-size: 15px;
+}
+
+.input_detail {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    font-size: 15px;
+}
+
+.input_title {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    font-size: 15px;
+}
+
+.input_date {
+    width: 200px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #c6c6c6;
+    font-size: 15px;
+}

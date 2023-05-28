@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
 import './SignUp.css'
-import Select from 'react-select';
 import { useNavigate } from 'react-router-dom';
-
-const options = [
-    { value: 1, label: '1' },
-    { value: 2, label: '2' },
-    { value: 3, label: '3' },
-    { value: 4, label: '4' },
-    { value: 5, label: '5' },
-];
+import axios from 'axios';
 
 function SignUp() {
-    const [selectedOption, setSelectedOption] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [chkpassword, setChkPassword] = useState("");
@@ -21,24 +12,30 @@ function SignUp() {
 
     const signUp = (e) => {
         e.preventDefault();
-        fetch("https://nengcipe-server.store/api/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
+        if (email === "" || password === "" || chkpassword === "" || name === "") {
+            alert("모든 정보를 입력해주세요");
+        }
+        else if (password !== chkpassword) {
+            alert("비밀번호가 동일하지 않습니다");
+        }
+        else {
+            const userBody = {
                 memberName: name,
                 memberId: email,
                 password: password,
-            }),
-        })
-            .then((response) => response.json())
-            .then((result) => {
-                if (result.code === 200) {
-                    alert("회원가입이 완료되었습니다.")
-                    navigate('/login');
-                }; 
-            });
+            }
+            axios.post("https://nengcipe-server.store/api/users", userBody)
+                .then(data => {
+                    if (data.status === 201) {
+                        alert("회원가입이 완료되었습니다.");
+                        navigate('/login');
+                    }
+                }).catch(response => {
+                    if (response.response.status === 409) {
+                        alert("이미 존재하는 아이디입니다.");
+                    }
+                })
+        }
     }
 
     return (
@@ -59,50 +56,10 @@ function SignUp() {
                         <div>
                             <input className='signup_input' value={name} onChange={(e) => setName(e.target.value)} type='text' placeholder='닉네임' />
                         </div>
-                        <div className='status_container'>
-                            <h1>맛 선호도</h1>
-                            <div className='status'>
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='단맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='신맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='짠맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='기름진맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                                <Select
-                                    className='select_status'
-                                    defaultValue={selectedOption}
-                                    placeholder='매운맛'
-                                    onChange={setSelectedOption}
-                                    options={options}
-                                />
-                            </div>
-                        </div>
                         <div>
                             <button onClick={signUp} className='btn_signup'>가입하기</button>
                         </div>
-                        <p>계정이 있으신가요 <a className='txt_gologin' href='/login'>로그인</a></p>
+                        <p>계정이 있으신가요? <a className='txt_gologin' href='/login'>로그인</a></p>
                     </form>
                 </div>
             </div>
