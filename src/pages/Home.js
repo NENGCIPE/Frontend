@@ -14,7 +14,11 @@ function Home() {
             navigate('/login');
         }
     }
-
+    const chkAuth_2 = () => {
+        
+            navigate('/UserGuide');
+        
+    }
     useEffect(() => {
         if (sessionStorage.getItem('jwt') != null) {
             setIsLogin(true);
@@ -31,7 +35,7 @@ function Home() {
                         <div className='nengcipe_info'>
                             <div className='nengcipe_info_script'>
                                 <h1>Find<br />Recipe<br />In refrigerator</h1>
-                                <p className='nengcipe_info_context'>냉시피를 사용하여 다양한 음식 레시피를 찾아보세요</p>
+                                <p className='nengcipe_info_context'>냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
                             </div>
 
                             <div className='nengcipe_info_btn'>
@@ -46,13 +50,13 @@ function Home() {
                         <img className='home_image' alt='이미지' src='../assets/home_image1.jpg' />
                     </div>
                     <div className='home_section2_intro'>
-                        <p className='home_section_txt'>냉장고에 재료는 많은데<br /> 무슨 음식을 할 수 있을까?</p>
+                        <p className='home_section_txt'>혼자사는 자취인들에게<br /> 잊혀지기 쉬운 냉장고 관리!</p>
                     </div>
                 </div>
                 <div className='home_section3'>
                     <div className='home_section3_intro'>
                         <div className='home_section3_intro_context'>
-                            <p className='home_section_txt'>내가 가진 재료들로<br />어떤 요리를 할 수 있는지<br /> 알려줄 수 있는 웹사이트 없을까?</p>
+                            <p className='home_section_txt'>가진 재료들로 어떤 요리를 할지<br /> 생각하기에는 너무나 바쁜 현대인!</p>
                         </div>
                     </div>
                 </div>
@@ -66,10 +70,11 @@ function Home() {
                         <img className='recipe_image' alt='이미지' src='../assets/recipe3.png' />
                     </div>
                     <div className='home_section4_intro_below'>
-                        <p className='home_section_txt'>냉시피로 지금 만들 수 있는 음식을 찾아보세요</p>
+                        <p className='home_section_txt'>지금부터 냉시피와 함께 해보세요!</p>
                     </div>
                     <div className='home_section4_intro_btn'>
                         <button className='home_section4_btn_nengcipe' onClick={chkAuth}>냉시피 시작하기</button>
+                        <button className='home_section4_btn_UserGuide' onClick={chkAuth_2}>냉시피 유저 가이드</button>
                     </div>
                 </div>
             </div>

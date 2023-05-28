@@ -73,18 +73,19 @@
     height: 1000px;
     background-color: white;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
 .home_image {
     height: 500px;
-    margin-right: 400px;
+    margin-right: 200px;
+    
 }
 
 .home_section2_intro {
-    text-align: center;
-    font-size: 40px;
+    text-align: left;
+    font-size: 50px;
     font-family: 'Noto Sans KR';
     font-weight: 600;
 }
@@ -152,9 +153,14 @@
     justify-content: center;
 }
 
+
+
+
 .home_section4_btn_nengcipe {
     width: 250px;
     height: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 20px;
     color: white;
     font-family: 'Noto Sans KR';
@@ -163,5 +169,20 @@
     border: 1px solid black;
     border-radius: 10px;
     background-color: black;
+    cursor: pointer;
+}
+.home_section4_btn_UserGuide {
+    width: 250px;
+    height: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    color: white;
+    font-family: 'Noto Sans KR';
+    font-size: 25px;
+    font-weight: 600;
+    border: 1px solid rgb(129, 129, 129);
+    border-radius: 10px;
+    background-color: rgb(129, 129, 129);
     cursor: pointer;
 }
