@@ -9,7 +9,7 @@ const Recommend = () => {
     const [loading, setLoading] = useState(false);
     const [responseText, setResponseText] = useState('');
 
-    const api_key = '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';
+    const api_key = '';
 
     const handleKeywordsChange = (e) => {
         setKeywords(e.target.value);
@@ -58,7 +58,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: 'AIzaSyAdBw3Wh42xn3oziX0bC902JOu5xcn0GuE',
+                        key: '',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
