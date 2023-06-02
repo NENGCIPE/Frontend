@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+    src: url('/public/fonts/NotoSansKR-Regular.otf') format('woff2'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('woff'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
+}
+.recommend_back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recommend_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1600px;
+    height: 400px;
+    
+    /* filter: blur(5px); */
+}
+
+.GPT_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -350px;
+}
+.GPT_title {
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 1600px;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -50px;
+    margin-bottom: 0px;
+    border-radius: 10px;
+    border: 1px solid transparent; 
+    box-shadow: 0 0 10px 5px rgb(255, 255, 255); 
+    
+}
+
+.title_logo{
+    display: flex;
+    margin-top: 30px;
+    /* justify-content: center; */
+    align-items: center;
+    
+}
+.youtube_image{
+    /* display: flex; */
+    width: 40px;
+    height: 'auto';
+    margin-right: 10px;
+}
+.openai_image{
+    /* display: flex; */
+    width: 30px;
+    height: 'auto';
+    margin-right: 10px;
+
+
+}
+.title{
+    /* font-size: 80px; */
+    /* margin-top: -25px; */
+    /* margin-bottom: 10px; */
+    font-size: 50px;
+
+}
+.sub_title{
+    margin-top: 0px;
+    font-size: 25px;
+    /* margin-bottom: -15px; */
+}
+.input_container{
+    width: 1600px;
+    /* padding: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.input{
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    /* margin-top: 50px; */
+}
+.button_G{
+    margin-left: 10px;
+    font-size: 20px;
+    width: 170px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.button_Y{
+    margin-left: 10px;
+    font-size: 20px;
+    width: 170px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-family: 'Noto Sans KR';
+    font-weight: 600;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.result-textbox {
+    margin-top: 100px;
+    width: 1000px;
+    height: 1000px;
+    resize: none;
+    border: none;
+    /* background: rgb(236, 236, 236); */
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    /* color: #333; */
+    overflow: auto;
+}
+
+.Youtube_container{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    margin-left: 0px;
+}
+
+.Y_contents{
+    display: flex;
+    margin-top: 20px;
+    width: 1000px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+.Y_description{
+    margin-left: 20px;
+}
