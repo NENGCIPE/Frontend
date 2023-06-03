@@ -99,29 +99,10 @@ function Recipe() {
                 </div>
                 
                 <div className="dish_detail">
-<<<<<<< HEAD
-                    <img src={`${process.env.PUBLIC_URL}/tteokgalbi.png`} alt="떡갈비" />
-                    <h2>떡갈비</h2>
-                    <div className="buttons">
-                        <button onClick={toggleAccordion}>
-                            <img src={`${process.env.PUBLIC_URL}/share.png`} alt="공유" />
-                        </button>
-                        {isAccordionOpen && (
-                            <div className="accordion">
-                                <img src={`${process.env.PUBLIC_URL}/link.png`} alt="링크" />
-                                <img src={`${process.env.PUBLIC_URL}/kakao.png`} alt="카카오" />
-                            </div>
-                        )}
-                        <button onClick={toggleHeart}>
-                            <img src={`${process.env.PUBLIC_URL}/${ isHeartFull ? 'heart_full' : 'heart_empty'}.png`} alt="하트"/>
-                            <span className="heart-count">{heartCount}</span>
-                        </button>
-=======
                     <div className='button_container'>
                         
                     <div className='recipe_name'>
                             <h2>떡갈비</h2>
->>>>>>> 687eb7ea9c97d6996191c138762c7a458375903a
                     </div>
                             <button className='share_btn' onClick={toggleAccordion}>
                                 <img src={`${process.env.PUBLIC_URL}/share.png`} alt="공유" style={{ width: '30px', height: '30px' }} />
