@@ -9,6 +9,7 @@ import MyPage from "./pages/MyPage";
 import EditMyInfo from "./pages/EditMyInfo";
 import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
+import KakaoRedirect from "./pages/KakaoRedirect";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path="/scrap" element={<div><Header/><Scrap/></div>}/>
       <Route path="/mypage" element={<div><Header/><MyPage/></div>}/>
       <Route path="/editmyinfo" element={<div><EditMyInfo/></div>}/>
+      <Route path="/oauth2" element={<KakaoRedirect/>}/>
     </Routes>
   );
 }

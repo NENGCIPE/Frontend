@@ -10,29 +10,29 @@ import Webcam from 'react-webcam';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ItemList from '../components/ItemList';
-import CartList from '../components/CartList';
+// import CartList from '../components/CartList';
 
 function Nengjanggo() {
-    const [checkedList, setCheckedList] = useState([]);
-    const handleCheck = (e) => {
-        const { value, checked } = e.target
-        if (checked) {
-            setCheckedList(pre => [...pre, value])
-        }
-        else {
-            setCheckedList(pre => {
-                return [...pre.filter(item => item !== value)]
-            })
-        }
-    }
-
-
+    // const [ingredModal, setIngredModal] = useState(false);
+    // const [checkedList, setCheckedList] = useState([]);
+    // const handleCheck = (e) => {
+    //     const { value, checked } = e.target
+    //     if (checked) {
+    //         setCheckedList(pre => [...pre, value])
+    //     }
+    //     else {
+    //         setCheckedList(pre => {
+    //             return [...pre.filter(item => item !== value)]
+    //         })
+    //     }
+    // }
+    const [recipeList, setRecipeList] = useState([]);
     const [fridgeList, setFridgeList] = useState([]);
     const [itemlist, setItemList] = useState([]);
     const navigate = useNavigate();
     const [camModal, setCamModal] = useState(false);
     const [itemModal, setItemModal] = useState(false);
-    const [ingredModal, setIngredModal] = useState(false);
+
     const [image, setImage] = useState("");
     const webcamRef = useRef(null);
     const capture = () => {
@@ -95,9 +95,7 @@ function Nengjanggo() {
                 headers: {
                     Authorization: sessionStorage.getItem('jwt')
                 }
-            }).then((data) => {
-                console.log(data)
-            });
+            })
         });
         alert("냉장고에 재료추가가 완료되었습니다.");
         setItemModal(false);
@@ -115,7 +113,18 @@ function Nengjanggo() {
             return data.result;
         }
         getIngred().then(result => setFridgeList(result));
-    })
+
+        const getRecipe = async () => {
+            const { data } = await axios.get("https://nengcipe-server.store/api/recipes/all", {
+                headers: {
+                    Authorization: sessionStorage.getItem('jwt')
+                }
+            })
+            console.log(data.result);
+            return data.result;
+        }
+        getRecipe().then(result => setRecipeList(result));
+    }, [])
 
     return (
         <div className='Nengjanggo'>
@@ -156,7 +165,7 @@ function Nengjanggo() {
                 <div className='fridge_container'>
                     <div className='fridge_box'>
                         {fridgeList.map((item, index) => (
-                            <IngredientBox icon={`../assets/icon_diary.png`} id={item.id} name={item.ingredName} amount={item.quantity} date={"-7"} color={"green"} />
+                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={"-7"} color={"green"} />
                         ))}
                     </div>
                 </div>
@@ -208,12 +217,11 @@ function Nengjanggo() {
                         </div>
                     </div>
                 </div>
-
                 <div className={itemModal ? 'modal' : 'modal_hidden'}>
                     <div className='modal_overlay'></div>
                     <div className='item_modal_content'>
                         <h1 className='item_modal_title'>재료</h1>
-                        <button onClick={onCreate}>리스트 추가</button>
+                        <button className='btn_additemlist' onClick={onCreate}>리스트 추가</button>
                         <div className='item_modal_list'>
                             {itemlist.map((item, index) => (
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
@@ -222,78 +230,56 @@ function Nengjanggo() {
                                     onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)} />
                             ))}
                         </div>
-                        <button onClick={addIngred}>냉장고에 추가</button>
-                        <button onClick={closeItemModal}>닫기</button>
+                        <button className='btn_addItemtoFridge' onClick={addIngred}>냉장고에 추가</button>
+                        <button className='btn_close' onClick={closeItemModal}>닫기</button>
                     </div>
                 </div>
             </div>
             <div className='search_recipe'>
-                <h3><BsSearch /> 레시피 검색</h3>
-                <div className='select_ingredients'>
+                <h3><BsSearch /> 내 재료로 할 수 있는 레시피 </h3>
+                {/* <div className='select_ingredients'>
                     재료 선택 :
                     <button className='btn_addfood' onClick={() => setIngredModal(true)}>+</button>
                     <div className={ingredModal ? 'modal' : 'modal_hidden'}>
                         <div className='modal_overlay'></div>
                         <div className='ingred_modal_content'>
                             <h1 className='ingred_modal_title'>재료 선택</h1>
-                            <div className='ingred_modal_list'>
-                                {fridgeList.map((item, index) => (
-                                    <CartList name={item.ingredName} count={item.quantity} handleCheck={handleCheck} />
-                                ))}
-                            </div>
-                            <div>
-                                <p>선택된 재료: </p>
-                                {checkedList.map((item, index) => (
-                                    <div key={index}>
-                                        <span>{item}</span>
+                            <div className='ingred_modal_list_container'>
+                                <div className='ingred_modal_list'>
+                                    {fridgeList.map((item, index) => (
+                                        <CartList name={item.ingredName} count={item.quantity} handleCheck={handleCheck} />
+                                    ))}
+                                </div>
+                                <div className='ingred_selected_list_container'>
+                                    <p>선택된 재료</p>
+                                    <div className='ingred_selected_list'>
+                                        {checkedList.map((item, index) => (
+                                            <div className='selected_item' key={index}>
+                                                <span>{item}</span>
+                                            </div>
+                                        ))}
                                     </div>
-                                ))}
+                                </div>
                             </div>
-                            <button onClick={() => setIngredModal(false)}>닫기</button>
+                            <button className='btn_close' onClick={() => setIngredModal(false)}>닫기</button>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 <div className='recipe_list'>
-                    <div className='recipe_container' onClick={() => navigate("/recipe")}>
-                        <Card title={"떡갈비"} scrap={"13"} />
-                        <div className='recipe_descript'>
-                            <div className='recipe_title'>재료</div>
-                            <div className='recipe_ingredients'>
-                                소고기 돼지고기 양파 대파 당근 부추 다진마늘 계란
+                    {recipeList.map((item, index) => (
+                        <div className='recipelist_container' onClick={() => navigate("/recipe")}>
+                            <Card img={item.imgUrl} title={item.recipeName} scrap={"13"} />
+                            <div className='recipe_descript'>
+                                <div className='recipe_title'>재료</div>
+                                <div className='recipe_ingredients'>
+                                    {item.recipeIngredName}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className='recipe_container' onClick={() => navigate("/recipe")}>
-                        <Card title={"떡갈비"} scrap={"13"} />
-                        <div className='recipe_descript'>
-                            <div className='recipe_title'>재료</div>
-                            <div className='recipe_ingredients'>
-                                소고기 돼지고기 양파 대파 당근 부추 다진마늘 계란
-                            </div>
-                        </div>
-                    </div>
-                    <div className='recipe_container' onClick={() => navigate("/recipe")}>
-                        <Card title={"떡갈비"} scrap={"13"} />
-                        <div className='recipe_descript'>
-                            <div className='recipe_title'>재료</div>
-                            <div className='recipe_ingredients'>
-                                소고기 돼지고기 양파 대파 당근 부추 다진마늘 계란
-                            </div>
-                        </div>
-                    </div>
-                    <div className='recipe_container'>
-                        <Card title={"떡갈비"} scrap={"13"} />
-                        <div className='recipe_descript'>
-                            <div className='recipe_title'>재료</div>
-                            <div className='recipe_ingredients'>
-                                소고기 돼지고기 양파 대파 당근 부추 다진마늘 계란
-                            </div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </div>
         </div>
-
     );
 }
 

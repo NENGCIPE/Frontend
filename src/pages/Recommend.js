@@ -6,18 +6,27 @@ import axios from 'axios';
 
 const Recommend = () => {
     const [keywords, setKeywords] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [loadingG, setLoadingG] = useState(false);
+    const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
 
-    const api_key = '';
+    
 
     const handleKeywordsChange = (e) => {
         setKeywords(e.target.value);
     };
+    // useEffect(() => {
+    //     chatGPT();
+    //   }, []); // chatGPT 함수는 최초 렌더링 시에 실행됨
+      
+    //   useEffect(() => {
+    //     YouTubeSearch();
+    //   }, []); // youtubeSearch 함수는 최초 렌더링 시에 실행됨
     
     //gpt
+    const api_key = '';
     const chatGPT = () => {
-        setLoading(true);
+        setLoadingG(true);
 
         const messages = [
             { role: 'system', content: 'You are a chef' },
@@ -26,8 +35,8 @@ const Recommend = () => {
 
         const data = {
             model: 'gpt-3.5-turbo',
-            temperature: 0.5,
-            n: 1,
+            // temperature: 0.5,
+            // n: 1,
             messages: messages,
         };
 
@@ -38,14 +47,14 @@ const Recommend = () => {
                     'Content-Type': 'application/json',
                 },
             })
-            .then((response) => {
-                setLoading(false);
-                console.log(response.data);
-                setResponseText(response.data.choices[0].message.content);
+            .then((responseG) => {
+                setLoadingG(false);
+                console.log(responseG.data);
+                setResponseText(responseG.data.choices[0].message.content);
                 setKeywords('');
             })
             .catch((error) => {
-                setLoading(false);
+                setLoadingG(false);
                 console.error(error);
             });
     };
@@ -53,8 +62,9 @@ const Recommend = () => {
     const [videos, setVideos] = useState([]);
     
     const YouTubeSearch = async () => {
+        setLoadingY(true);
         try {
-            const response = await axios.get(
+            const responseY = await axios.get(
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
@@ -65,11 +75,19 @@ const Recommend = () => {
                     }
                 }
             );
-            setVideos(response.data.items);
+            setVideos(responseY.data.items);
         } catch (error) {
+            setLoadingY(false);
             console.error(error);
         }
     };
+    // useEffect(() => {
+    //     chatGPT();
+    //   }, []); // chatGPT 함수는 최초 렌더링 시에 실행됨
+      
+    //   useEffect(() => {
+    //     YouTubeSearch();
+    //   }, []); // youtubeSearch 함수는 최초 렌더링 시에 실행됨
 
     //YouTubeSearch();
 
@@ -83,7 +101,7 @@ const Recommend = () => {
                 <div className='GPT_title'>
                     {/* <h1 className='title'>How about?</h1> */}
                     <div className='title_logo'>
-                        <h1 className='title'>Chat-GPT & YouTube</h1>
+                        <h1 className='title'>Chat-GPT and YouTube</h1>
                         
                     </div>
                     <p className='sub_title'>그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
@@ -112,17 +130,23 @@ const Recommend = () => {
                 </div>
 
 
-                {loading && (
+                {loadingG && (
                     <p className="loading">Loading...</p>
                 )}
 
                 {responseText && (
-                    <textarea className="result-textbox" value={responseText} readOnly />
+                    <div>
+                        <div className="result" >Chat-GPT Result...</div><br />
+                        <textarea className="result-textbox" value={responseText} readOnly />
+                    </div>
                 )}
 
 
             
             <div className='Youtube_container'>
+                {loadingY && (
+                    <div className="result" >YouTube Result...</div>
+                )}
                 {videos.map(video => (
                     <div className='Y_contents' key={video.id.videoId}>
                         <a
