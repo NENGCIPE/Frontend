@@ -30,17 +30,50 @@ function IngredientBox({ icon, id, name, amount, date, color }) {
     const removeIngred = (id) => {
         axios.delete(`https://nengcipe-server.store/api/users/fridge?id=${id}`, { headers: {Authorization: sessionStorage.getItem('jwt')} })
             .then(response => {
-                console.log(response)
+                if(response.status === 200) {
+                    alert("냉장고 재료 삭제 성공")
+                }
             })
     }
-
+    const setIcon = (icon) => {
+        if (icon.startsWith("육류")) {
+            return `../assets/icon_meat.png`
+        }
+        else if (icon.startsWith("채소류")) {
+            return `../assets/icon_vegetable.png`
+        }
+        else if (icon.startsWith("해물류")) {
+            return `../assets/icon_seafood.png`
+        }
+        else if (icon.startsWith("유제품")) {
+            return `../assets/icon_diary.png`
+        }
+        else if (icon.startsWith("가공식품류")) {
+            return `../assets/icon_processedfood.png`
+        }
+        else if (icon.startsWith("건어물류")) {
+            return `../assets/icon_driedfish.png`
+        }
+        else if (icon.startsWith("과일류")) {
+            return `../assets/icon_fruits.png`
+        }
+        else if (icon.startsWith("견과류")) {
+            return `../assets/icon_nuts.png`
+        }
+        else if (icon.startsWith("곡류")) {
+            return `../assets/icon_grain.png`
+        }
+        else {
+            return `../assets/icon_ingredient.png`
+        }
+    }
     return (
         <Container color={color}>
             <div className='ingredient_remove'>
                 <img onClick={() => removeIngred(id)} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='삭제'/>
             </div>
             <div className='ingredient_icon_container'>
-                <img className='ingredient_icon' src={icon} alt='아이콘' />
+                <img className='ingredient_icon' src={setIcon(icon)} alt='아이콘' />
             </div>
             <div className='ingredient_info'>
                 <div className='ingredient_name'>{name}</div>

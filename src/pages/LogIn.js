@@ -25,14 +25,12 @@ function LogIn() {
                         navigate('/');
                     }
                 }).catch(response => {
-                    if (response.response.status === 404) {
+                    if (response.response.status === 404 || response.response.status === 400) {
                         alert("아이디나 비밀번호를 다시 확인해주세요.");
                     }
                 })
-                
         }
     }
-
     return (
         <div className='background'>
             <div className='login_container'>
@@ -50,7 +48,7 @@ function LogIn() {
                         </div>
                         <p>회원이 아니신가요? <a className='txt_gosignup' href='/signup'>회원가입</a></p>
                         <div>
-                            <img className='btn_kakao' src='../assets/kakao_login.png' alt='카카오로그인' />
+                            <a href='https://nengcipe-server.store/oauth2/authorization/kakao'><img className='btn_kakao' src='../assets/kakao_login.png' alt='카카오로그인' /></a>
                         </div>
                     </form>
                 </div>
