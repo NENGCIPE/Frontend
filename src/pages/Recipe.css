@@ -97,7 +97,14 @@
     border: 1px solid rgba(255, 0, 0, 0);
   }
 
-  
+  .accordion-content{
+    flex-direction: column;
+       display: fixed;
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .accordion img {
     transform: scale(0.07);
   }
