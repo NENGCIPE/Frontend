@@ -24,7 +24,7 @@ const Recommend = () => {
     //   }, []); // youtubeSearch 함수는 최초 렌더링 시에 실행됨
     
     //gpt
-    const api_key = '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';
+    const api_key = '';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -68,7 +68,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
+                        key: '',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
