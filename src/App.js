@@ -18,7 +18,7 @@ function App() {
       <Route path="/login" element={<div><LogIn/></div>}/>
       <Route path="/signup" element={<div><SignUp/></div>}/>
       <Route path="/nengjanggo" element={<div><Header/><Nengjanggo/></div>}/>
-      <Route path="/recipe" element={<div><Header/><Recipe/></div>}/>
+      <Route path="/recipe/:recipeID" element={<div><Header/><Recipe/></div>}/>
       <Route path="/recommend" element={<div><Header/><Recommend/></div>}/>
       <Route path="/scrap" element={<div><Header/><Scrap/></div>}/>
       <Route path="/mypage" element={<div><Header/><MyPage/></div>}/>
