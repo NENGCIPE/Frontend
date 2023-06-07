@@ -1,12 +1,13 @@
 .card_container {
     width: 380px;
     height: 320px;
-    background-color: #5a5856;
     border-radius: 10px;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .card_container:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .card_img {
@@ -17,18 +18,14 @@
 
 .card_info {
     display: flex;
-    color: white;
-    font-size: 25px;
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
     margin-top: 20px;
 }
 
 .card_title{
     margin-left: 10px;
     width: 310px;
-}
-
-.scrap_icon {
-    font-size: 30px;
 }
 
 .card_count {

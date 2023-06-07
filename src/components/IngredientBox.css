@@ -15,8 +15,10 @@
 
 .ingredient_name {
     font-size: 15px;
+    font-family: 'Noto Sans KR';
 }
 
 .ingredient_amount {
     font-size: 15px;
+    font-family: 'Noto Sans KR';
 }

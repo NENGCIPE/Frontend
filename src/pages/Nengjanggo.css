@@ -95,7 +95,8 @@
 
 .fridge_container {
     width: 1000px;
-    height: 400px;
+    height: 800px;
+    max-height: 800px;
     margin-bottom: 30px;
     border-radius: 10px;
     border: 3px solid black;
@@ -103,28 +104,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 .fridge_box {
     width: 950px;
-    height: 350px;
+    height: 750px;
     display: grid;
     grid-template-columns: repeat(7, 140px);
-    grid-template-rows: repeat(2, 200px);
+    grid-template-rows: repeat(4, 200px);
 }
-
-.freezer_container {
-    width: 1000px;
-    height: 400px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    border: 3px solid black;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 .btn_addItem {
     width: 200px;
@@ -136,6 +125,7 @@
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .modal {
@@ -174,6 +164,10 @@
     align-items: center;
 }
 
+.item_modal_title {
+    font-family: 'Noto Sans KR';
+}
+
 .item_modal_content {
     background-color: white;
     padding: 100px 500px;
@@ -181,47 +175,65 @@
     position: relative;
     border-radius: 10px;
     width: 500px;
-    max-height: 700px;
+    max-height: 800px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Noto Sans KR';
 }
 
 .item_modal_list {
+    width: 1300px;
     max-height: 500px;
     overflow: auto;
 }
 
 .btn_additemlist {
-    width: 140px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 10px;
-    margin-left: 1080px;
+    margin-left: 1150px;
     background-color: black;
-    border-radius: 5px;
+    border-radius: 100%;
     border: 1px solid black;
     color: white;
     font-size: 20px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .btn_addItemtoFridge {
-    width: 200px;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    width: 150px;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     background-color: black;
     border-radius: 5px;
     border: 1px solid black;
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
+}
+
+.btn_addItemclose {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 30px;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .webcam_info {
     width: 500px;
+    font-family: 'Noto Sans KR';
 }
 
 .btn_capture {
@@ -235,6 +247,7 @@
     font-size: 25px;
     cursor: pointer;
     margin-bottom: 50px;
+    font-family: 'Noto Sans KR';
 }
 
 .section_btn {
@@ -254,6 +267,7 @@
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .btn_close {
@@ -267,6 +281,7 @@
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .ingred_modal_content {
@@ -371,21 +386,25 @@
     margin-top: 50px;
 }
 
+.nengjanggo_title {
+    font-size: 20px;
+    font-family: 'Noto Sans KR';
+}
+
 .recipe_list {
-    width: 1200px;
-    height: 1370px;
-    margin-bottom: 100px;
-    border-radius: 10px;
-    font-size: 30px;
+    width: 1300px;
     max-height: 1400px;
     overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 420px);
+    grid-template-rows: repeat(3, 400px);
+    margin-bottom: 100px;
 }
 
 .recipelist_container {
-    width: 1000px;
     height: 320px;
     display: flex;    
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .recipe_descript {

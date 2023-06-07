@@ -42,7 +42,7 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
     return (
         <div className='item_list'>
             <div className='list_container'>
-                <div className='input_container'>
+                <div className='input_box'>
                     <select className='select_location' value={location} onChange={handleLocationChange}>
                         <option value="" disabled hidden>위치</option>
                         {itemLocation.map((option) => (
@@ -52,7 +52,7 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                         ))}
                     </select>
                 </div>
-                <div className='input_container'>
+                <div className='input_box'>
                     <select className='select_category' value={category} onChange={(e) => setCategory(e.target.value)} onBlur={handleCategoryChange}>
                         <option value="" disabled hidden>대분류</option>
                         {mainCategory.map((option) => (
@@ -62,10 +62,10 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                         ))}
                     </select>
                 </div>
-                <div className='input_container'>
-                    <input className='input_detail' placeholder='소분류 예) 우유' type="text" value={detailCategory} onChange={(e) => setDetailCategory(e.target.value)} onBlur={handleCategoryChange} />
+                <div className='input_box'>
+                    <input className='input_detail' placeholder='소분류 예) 양파, 우유' type="text" value={detailCategory} onChange={(e) => setDetailCategory(e.target.value)} onBlur={handleCategoryChange} />
                 </div>
-                <div className='input_container'>
+                <div className='input_box'>
                     <input className='input_title' placeholder='재료명' type="text" value={title} onChange={(e) => setTitle(e.target.value)} onBlur={handleTitleChange} />
                 </div>
                 <div className='input_count'>
@@ -73,7 +73,7 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                     <span className='item_amount'>{amount}</span>
                     <AiOutlinePlusCircle className='btn_amount' onClick={() => { handleAmount("plus") }} />
                 </div>
-                <div className='input_container'>
+                <div className='input_box'>
                     <span>보관날짜</span>
                     <DatePicker
                         className='input_date'
@@ -86,7 +86,7 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                         locale={ko}
                     />
                 </div>
-                <div className='input_container'>
+                <div className='input_box'>
                     <span>소비기한</span>
                     <DatePicker
                         className='input_date'
@@ -99,7 +99,7 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                         locale={ko}
                     />
                 </div>
-                <div className='input_container'>
+                <div className='input_box'>
                 <img onClick={() => onRemove(name)} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='delete'/>
                 </div>
 
