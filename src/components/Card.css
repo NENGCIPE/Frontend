@@ -25,7 +25,9 @@
 
 .card_title{
     margin-left: 10px;
-    width: 310px;
+    width: 350px;
+    height: 60px;
+    overflow: hidden;
 }
 
 .card_count {

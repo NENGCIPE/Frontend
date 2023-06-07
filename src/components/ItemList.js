@@ -6,9 +6,7 @@ import { ko } from 'date-fns/esm/locale';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 
 function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateCategory}) {
-    const itemLocation = ["냉장실", "냉동실"]
     const mainCategory = ["육류", "채소류", "해물류", "유제품", "가공식품류", "건어물류", "과일류", "견과류", "곡류", "기타"]
-    const [location, setLocation] = useState('');
     const [category, setCategory] = useState('');
     const [detailCategory, setDetailCategory] = useState('');
     const [title, setTitle] = useState(name);
@@ -16,15 +14,11 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
     const [inputDate, setInputDate] = useState(new Date());
     const [expiryDate, setExpiryDate] = useState(new Date());
 
-    const handleLocationChange = (e) => {
-        setLocation(e.target.value);
-    };
-
-    const handleCategoryChange = (e) => {
+    const handleCategoryChange = () => {
         onUpdateCategory(`${category}/${detailCategory}`)
     };
 
-    const handleTitleChange = (e) => {
+    const handleTitleChange = () => {
         onUpdateName(title)
     }
 
@@ -42,16 +36,6 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
     return (
         <div className='item_list'>
             <div className='list_container'>
-                <div className='input_box'>
-                    <select className='select_location' value={location} onChange={handleLocationChange}>
-                        <option value="" disabled hidden>위치</option>
-                        {itemLocation.map((option) => (
-                            <option value={option} key={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </select>
-                </div>
                 <div className='input_box'>
                     <select className='select_category' value={category} onChange={(e) => setCategory(e.target.value)} onBlur={handleCategoryChange}>
                         <option value="" disabled hidden>대분류</option>
