@@ -23,7 +23,7 @@
   }
   
   .image-container {
-    background-color: #e8e6e6;
+    /* background-color: #e8e6e6; */
     position: relative;
     display: flex;
     justify-content: center;
@@ -70,9 +70,9 @@
     flex-direction: center;
     align-items: top;
     margin-left: 600px;
-    margin-top: -130px;
-    height: 100px;
-    /* background-color: rgba(0, 0, 0, 0.219); */
+    margin-top: -125px;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.219);
   }
   .recipe_name{
     margin-top: 0px;
@@ -141,7 +141,16 @@
     margin-bottom: 5px;
     font-size: 15px;
   }
-  
+  .ingredients{
+    font-size: 30px;
+  }
+  .recipe_name{
+    font-size: 20px;
+  }
+  .ingredients_text{
+    font-size: 30px;
+  }
   .recipe-description{
     width: 750px;
+    font-size: 30px;
   }
