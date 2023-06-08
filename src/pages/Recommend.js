@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Recommend = () => {
-    const [keywords, setKeywords] = useState('');
+    const [keywords, setKeywords] = useState('빈칸에 재료를 입력하세요');
     const [loadingG, setLoadingG] = useState(false);
     const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
@@ -45,7 +45,7 @@ const Recommend = () => {
                 setLoadingG(false);
                 console.log(responseG.data);
                 setResponseText(responseG.data.choices[0].message.content);
-                setKeywords('');
+                //setKeywords('');
             })
             .catch((error) => {
                 setLoadingG(false);
@@ -86,7 +86,7 @@ const Recommend = () => {
     //YouTubeSearch();
 
     return (
-        <div>
+        <div className='back_img'>
 
 
 
@@ -124,7 +124,7 @@ const Recommend = () => {
                         </button>
 
                     </div>
-                    <p style={{ color: 'white' }}>빈칸에 재료들을 입력해주세요</p>
+                    <p style={{ color: 'white' }}>스크롤을 내려 검색 결과를 확인하세요!</p>
                 </div>
 
 

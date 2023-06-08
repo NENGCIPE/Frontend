@@ -35,6 +35,7 @@ function UserGuide() {
                 </div>
                 
                 <p className='sub_title_Userguide'><button onClick={chkAuth} className='btn_HOME' >Back to HOME</button></p>
+                <img className='guide_logo' alt='이미지' src='../assets/nengcipe_logo.png' />            
             </div>
             
             <div className='guide_container'>

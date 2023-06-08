@@ -43,6 +43,7 @@ function Home() {
                             <div className='nengcipe_info_script'>
                                 <h1>Find<br />Recipe<br />In refrigerator</h1>
                                 <p className='nengcipe_info_context'>냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
+                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo.png' />  
                             </div>
 
                             <div className='nengcipe_info_btn'>
@@ -71,7 +72,8 @@ function Home() {
                 </div>
                 <div className='home_section4'>
                     <div className='home_section4_intro'>
-                        <p className='home_section_txt'>RECIPES</p>
+                        {/* <p className='home_section_txt'>RECIPES</p> */}
+                        <img className='home_logo_2' alt='이미지' src='../assets/nengcipe_logo.png' />
                     </div>
                     <div className='home_section4_img'>
                         <img className='recipe_image' alt='이미지' src='../assets/recipe1.png' />
@@ -83,7 +85,7 @@ function Home() {
                     </div>
                     <div className='home_section4_intro_btn'>
                         {/* <button className='home_section4_btn_nengcipe' onClick={chkAuth}>냉시피 시작하기</button> */}
-                        <button onClick={chkAuth} className='btn_nengcipe' > nengcipe start now</button>
+                        <button onClick={chkAuth} className='btn_nengcipe_1' > nengcipe start now</button>
                         <button onClick={chkAuth_2} className='btn_nengcipe_2' >nengcipe user guide</button>
                     </div>
                 </div>

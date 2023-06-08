@@ -5,10 +5,11 @@
         url('/public/fonts/NotoSansKR-Regular.otf') format('woff'),
         url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
-.recommend_back{
+.back_img{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 
@@ -23,7 +24,7 @@ z-index: -1;
 
 .background_video_rec {
 width: 1500px;
-height: 500px;
+height: 800px;
 object-fit: cover;
 }
 
@@ -38,23 +39,23 @@ object-fit: cover;
 .GPT_title {
     /* background-color: rgba(255, 255, 255, 0.5); */
     width: 1500px;
-    height: 500px;
+    /* height: 500px; */
     padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: -500px;
-    margin-bottom: 50px;
+    margin-bottom: 250px;
     /* border-radius: 10px; */
     border: 1px solid transparent; 
-    box-shadow: 0 0 10px 5px rgb(255, 255, 255); 
+    /* box-shadow: 0 0 10px 5px rgb(255, 255, 255);  */
     
 }
 
 .title_logo{
     display: flex;
-    /* margin-top: -40px; */
+    margin-top: -100px;
     /* justify-content: center; */
     align-items: center;
     
@@ -175,6 +176,7 @@ object-fit: cover;
     /* align-items: center; */
     flex-direction: column;
     margin-left: 0px;
+    padding: 30px;
 }
 
 .Y_contents{
