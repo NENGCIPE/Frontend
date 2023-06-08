@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import './Header.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Header() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
-    const chkAuth = () => {
-        if (isLogin === true) {
-            navigate('/mypage')
-        }
-        else {
-            alert("로그인이 필요한 기능입니다.");
-            navigate('/login');
-        }
-    }
+    // const chkAuth = () => {
+    //     if (isLogin === true) {
+    //         navigate('/mypage')
+    //     }
+    //     else {
+    //         alert("로그인이 필요한 기능입니다.");
+    //         navigate('/login');
+    //     }
+    // }
 
     const logOut = () => {
         if (isLogin) {
@@ -36,7 +36,7 @@ function Header() {
         <div className='header'>
             <div className='header_container'>
                 <div className='header_logo'>
-                    <div><a href='/'><img className='header_logo_icon' alt='logo' src='../assets/nengcipe_logo.jpg' /></a></div>
+                    <div><a href='/'><img className='header_logo_icon' alt='logo' src='../assets/nengcipe_logo.png' /></a></div>
                 </div>
                 <div className='header_menu'>
                     <div><a href='/'>Home</a></div>
@@ -50,9 +50,9 @@ function Header() {
                             <span onClick={logOut}><button className='header_btn1'>{isLogin ? '로그아웃' : '로그인'}</button></span>
                         </Link>
                     </div>
-                    <div className='header_option'>
+                    {/* <div className='header_option'>
                         <span ><button onClick={chkAuth} className='header_btn2'>마이페이지</button></span>
-                    </div>
+                    </div> */}
                 </div>                
             </div>
         </div>
