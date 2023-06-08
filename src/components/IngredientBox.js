@@ -6,6 +6,7 @@ import axios from 'axios';
 const Container = styled.div`
     width: 100px;
     height: 150px;
+    background-color: white;
     border: 3px solid ${props => props.color};
     border-radius: 10px;
     display: flex;

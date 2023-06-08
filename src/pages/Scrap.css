@@ -3,6 +3,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url('/public/assets/nengjanggo_back.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page_name {

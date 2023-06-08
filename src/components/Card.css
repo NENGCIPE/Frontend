@@ -1,7 +1,8 @@
 .card_container {
     width: 380px;
     height: 320px;
-    border-radius: 10px;
+    background-color: white;
+    border-radius: 5px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -13,7 +14,8 @@
 .card_img {
     width: 380px;
     height: 230px;
-    border-radius: 10px;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .card_info {
@@ -28,9 +30,4 @@
     width: 350px;
     height: 60px;
     overflow: hidden;
-}
-
-.card_count {
-    font-size: 20px;
-    margin-top: 10px;
 }
