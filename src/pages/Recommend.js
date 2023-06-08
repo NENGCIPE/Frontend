@@ -18,7 +18,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = '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';
+    const api_key = '';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -62,7 +62,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
+                        key: '',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
