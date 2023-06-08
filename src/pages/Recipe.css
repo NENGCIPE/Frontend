@@ -1,18 +1,33 @@
+.Recipe_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .Recipe {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    background-color: rgb(255, 255, 255, 0.9);
+    padding-left: 50px;
     font-family: Arial, sans-serif;
   }
   .info_top{
-    /* width: 1500px; */
+    width: 1510px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url('/public/assets/userguide_back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+
+
   }
   .info_left{
-    width: 400px;
-    align-items: top;
+    width: 250px;
+    margin-right: -50px;
+    /* margin-right: 20px; */
+    /* align-items: top; */
   }
   .Recipe_title,
   .image-container {
@@ -29,9 +44,22 @@
   
   .dish_name {
     font-size: 20px;
+    /* height: 20px; */
     margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    background-color: rgba(115, 115, 115, 0.3);
+    border-radius: 50px;
+    padding: 0px 50px;
+    box-shadow: 0px 0px 10px 10px rgba(115, 115, 115, 0.3);
   }
-  
+  .recipe_line
+  {
+    width: 1200px;
+    height: 3px;
+    background-color: black;
+    /* fill: black; */
+  }
   .image-container {
     /* background-color: #e8e6e6; */
     position: relative;
@@ -44,12 +72,14 @@
   .food_img {
     /* margin-top: 10px; */
     padding: 50px;
-    width: 700px;
-    height: 700px;
+    width: 750px;
+    height: 750px;
     margin-left: -50px;
     object-fit: cover;
+    /* border-radius: 10px; */
     /* justify-content: center; */
     justify-content: center;
+    
 
   }
   
@@ -63,6 +93,7 @@
     flex-direction: column;
     /* justify-content: flex-end; */
     margin-bottom: 10px;
+    
   }
   
   .dish_detail h2 {
@@ -80,7 +111,7 @@
     display: flex;
     flex-direction: center;
     align-items: top;
-    margin-left: 550px;
+    margin-left: 600px;
     margin-top: -105px;
     height: 50px;
     background-color: rgba(0, 0, 0, 0.219);
@@ -88,6 +119,7 @@
   .recipe_name{
     margin-top: 0px;
     width: 0px;
+    background-color: white;
   }
   .ingred_text{
     display: flex;
@@ -154,20 +186,29 @@
   }
   .ingredients{
     font-size: 20px;
-    margin-top: -450px;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 5px 0 #00000026;
   }
   .recipe_name{
     font-size: 20px;
   }
 .info_right{
-  margin-left: -100px;
+  margin-left: 100px;
 }
 
   .ingredients_text{
     font-size: 20px;
   }
   .recipe-description{
-    width: 750px;
+    width: 710px;
     font-size: 20px;
-    padding-bottom: 100px; 
+    /* padding-bottom: 100px;  */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 5px 0 #00000026;
   }
