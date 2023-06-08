@@ -3,10 +3,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url('/public/assets/nengjanggo_back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
+.page_name_container{
+    width: 1500px;
+    height: 400px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-image: url('/public/assets/nengjanggo_back.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 .page_name {
+    margin-top: 0px;
     font-size: 40px;
+    color: white;
+}
+.menu_container{
+    display: flex;
+    /* height: 100px; */
+    flex-direction: row;
+    justify-content: center;
 }
 
 .expiry_menu {
@@ -18,7 +39,8 @@
     width: 300px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     position: relative;
-    margin-right: 100px;
+    margin-right: 10px;
+    background-color: white;
 }
 
 #dropdown1 {
@@ -67,6 +89,7 @@
     width: 300px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     position: relative;
+    background-color: white;
 }
 
 #dropdown2 {
@@ -94,8 +117,8 @@
 }
 
 .fridge_container {
-    width: 1000px;
-    height: 800px;
+    width: 1200px;
+    height: 600px;
     max-height: 800px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -105,8 +128,11 @@
     justify-content: center;
     align-items: center;
     overflow: auto;
+    background-image: url('/public/assets/nengjanggo_inside.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
+/* 출처 <a href="https://kr.freepik.com/free-vector/close-up-an-inside-the-refrigerator_24781258.htm#from_view=detail_alsolike">작가 brgfx</a> 출처 Freepik */
 .fridge_box {
     width: 950px;
     height: 750px;

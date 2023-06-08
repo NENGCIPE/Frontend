@@ -126,38 +126,44 @@ function Nengjanggo() {
 
     return (
         <div className='Nengjanggo'>
-            <div className='page_name'>
-                <h1>NENG_JANGGO</h1>
-            </div>
-            <div className='expiry_menu'>
-                <div className="imminent_container">
-                    <input id="dropdown1" type="checkbox" />
-                    <label className="dropdownLabel1" for="dropdown1">
-                        <div>소비기한 임박 (3)</div>
-                        <FaAngleDown className="caretIcon" />
-                    </label>
-                    <div className="content">
-                        <ul>
-                            <li>우유 500ml (D-1) / 냉장실</li>
-                            <li>소고기 300g (D-1) / 냉장실</li>
-                            <li>계란 3알 (D-2) / 냉장실</li>
-                        </ul>
-                    </div>
+            <div className='page_name_container'>
+                <div className='page_name'>
+                    <h1>NENG_JANGGO</h1>
                 </div>
-                <div className="expire_container">
-                    <input id="dropdown2" type="checkbox" />
-                    <label className="dropdownLabel2" for="dropdown2">
-                        <div>소비기한 만료 (2)</div>
-                        <FaAngleDown className="caretIcon" />
-                    </label>
-                    <div className="content">
-                        <ul>
-                            <li>요플레 / 냉장실</li>
-                            <li>닭가슴살 / 냉동실</li>
-                        </ul>
+                <div className='menu_container'>
+                    <div className='expiry_menu'>
+                        <div className="imminent_container">
+                            <input id="dropdown1" type="checkbox" />
+                                <label className="dropdownLabel1" for="dropdown1">
+                                    <div>소비기한 임박 (3)</div>
+                                    <FaAngleDown className="caretIcon" />
+                                </label>
+                            <div className="content">
+                                <ul>
+                                    <li>우유 500ml (D-1) / 냉장실</li>
+                                    <li>소고기 300g (D-1) / 냉장실</li>
+                                    <li>계란 3알 (D-2) / 냉장실</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="expire_container">
+                        <input id="dropdown2" type="checkbox" />
+                            <label className="dropdownLabel2" for="dropdown2">
+                                <div>소비기한 만료 (2)</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
+                        <div className="content">
+                            <ul>
+                                <li>요플레 / 냉장실</li>
+                                <li>닭가슴살 / 냉동실</li>
+                            </ul>
+                        </div>
                     </div>
+                    </div>
+                    
                 </div>
             </div>
+            
             <div className='fridge'>
                 <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
                 <div className='fridge_container'>
