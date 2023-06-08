@@ -119,7 +119,6 @@ function Nengjanggo() {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             })
-            console.log(data.result);
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
@@ -254,7 +253,7 @@ function Nengjanggo() {
                 </div> */}
                 <div className='recipe_list'>
                     {recipeList.map((item, index) => (
-                        <div className='recipelist_container' onClick={() => navigate(`/recipe/${index + 1}`)}>
+                        <div className='recipelist_container' onClick={() => navigate(`/recipe/${item.recipeId}`)}>
                             <Card img={item.imgUrl} title={item.recipeName}/>
                         </div>
                     ))}
