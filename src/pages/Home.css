@@ -214,7 +214,9 @@ object-fit: cover;
     padding: 150px;
     background-color: rgba(255, 255, 255, 0.1);
 }
-
+.home_section4_intro_below{
+    margin-top: -40px;
+}
 
 
 .home_section4_btn_nengcipe {

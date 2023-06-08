@@ -18,7 +18,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = '';
+    const api_key = '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';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -62,7 +62,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: '',
+                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
@@ -99,7 +99,7 @@ const Recommend = () => {
                 <div className='GPT_title'>
                     {/* <h1 className='title'>How about?</h1> */}
                     <div className='title_logo'>
-                        <h1 className='title'>SEARCH</h1>
+                        <h1 className='title_recommend'>SEARCH</h1>
 
                     </div>
                     <p className='sub_title'>그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
