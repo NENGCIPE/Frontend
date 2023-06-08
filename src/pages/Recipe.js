@@ -146,32 +146,26 @@ function Recipe() {
 
 
     return (
+    <div className='Recipe_container'>
         <div className='info_top'>
             <div className='Recipe_title'>
-                    {/* <div className='Recipe_page_name'>
-                        <p1>Recipe</p1>
-                    </div> */}
-                    <div className='dish_name'>
-                        <h1>{recipe.recipeName}</h1>
-                    </div>
-                </div>
-        <div className='Recipe'>
-            
-            
-            
-            <div className='info_left'>
-                
-                <div className='ingredients'>
-                    <h1>재료</h1>
-                    <p1>{renderIngredients()}</p1><br />
+                <div className='dish_name'>
+                    <h1>{recipe.recipeName}</h1>
                 </div>
             </div>
-
-
-
-            <div className='info_right'>
-            <div className="image-container">
-                    <div >
+            <div className='recipe_line'></div>
+                <div className='Recipe'>
+                {/* <div className='dish_name'>
+                    <h1>{recipe.recipeName}</h1>
+                </div> */}
+                    <div className='info_left'>
+                        <div className='ingredients'>
+                            <h1>재료</h1>
+                            <p1>{renderIngredients()}</p1><br />
+                        </div>
+                    </div>
+                    <div className='info_right'>
+                        <div className="image-container"><div >
                         <img className='food_img' src={recipe.imgUrl} alt="음식 이미지" />
                     </div>
 
@@ -205,6 +199,7 @@ function Recipe() {
                 </div>
             </div>
         </div >
+        </div>
         </div>
     );
 } export default Recipe;
