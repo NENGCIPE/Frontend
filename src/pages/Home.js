@@ -46,11 +46,11 @@ function Home() {
                             </div>
 
                             <div className='nengcipe_info_btn'>
-                                <button onClick={chkAuth} className='btn_nengcipe' > nengcipe start now
-                                
-                                </button>
+                                <button onClick={chkAuth} className='btn_nengcipe' > nengcipe start now</button>
+                                <button onClick={chkAuth_2} className='btn_nengcipe_2' >nengcipe user guide</button>
                                 {/* <img className='arrow' alt='이미지' src='../arrow.png' style={{ width: '25px', height: '25px' }} /> */}
                             </div>
+                            
 
                         </div>
                     </div>
