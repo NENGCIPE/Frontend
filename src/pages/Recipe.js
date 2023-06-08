@@ -127,12 +127,31 @@ function Recipe() {
 
         return null;
     };
+    const renderSentences = () => {
+        if (recipe && recipe.recipeDetail) {
+            const detail = recipe.recipeDetail.split('.');
+            
+            const renderSentences = detail.map((name, index) => (
+                <li className='ingredients_text' key={index}>{name.trim()}</li>
+            ));
+
+            return <ul>{renderSentences}</ul>;
+        }
+
+        return null;
+    };
+
 
 
 
 
     return (
         <div className='Recipe'>
+            {/* <div class="jb-box">
+                <video muted autoPlay loop>
+                <source src="../assets/background_v.mp4" type="video/mp4"/>
+                </video>
+            </div> */}
             <div className='title'>
                 <div className='page_name'>
                     <h1>Recipe</h1>
@@ -185,9 +204,10 @@ function Recipe() {
 
                     <div className='recipe-description'>
                         <h1 >레시피 설명</h1>
-                        {recipe.recipeDetail.split('.').map((sentence, index) => (
+                        <p1>{renderSentences()}</p1>
+                        {/* {recipe.recipeDetail.split('.').map((sentence, index) => (
                             <p key={index} style={{ fontSize: '30px' }}>{sentence.trim()}</p>
-                        ))}
+                        ))} */}
                     </div>
 
                 </div>

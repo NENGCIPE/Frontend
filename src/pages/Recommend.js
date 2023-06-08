@@ -10,21 +10,15 @@ const Recommend = () => {
     const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
 
-    
+
 
     const handleKeywordsChange = (e) => {
         setKeywords(e.target.value);
     };
-    // useEffect(() => {
-    //     chatGPT();
-    //   }, []); // chatGPT 함수는 최초 렌더링 시에 실행됨
-      
-    //   useEffect(() => {
-    //     YouTubeSearch();
-    //   }, []); // youtubeSearch 함수는 최초 렌더링 시에 실행됨
-    
+
+
     //gpt
-    const api_key = '';
+    const api_key = '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';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -35,8 +29,8 @@ const Recommend = () => {
 
         const data = {
             model: 'gpt-3.5-turbo',
-            // temperature: 0.5,
-            // n: 1,
+            temperature: 0.5,
+            n: 1,
             messages: messages,
         };
 
@@ -60,7 +54,7 @@ const Recommend = () => {
     };
     //youtube
     const [videos, setVideos] = useState([]);
-    
+
     const YouTubeSearch = async () => {
         setLoadingY(true);
         try {
@@ -68,7 +62,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: '',
+                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
@@ -84,7 +78,7 @@ const Recommend = () => {
     // useEffect(() => {
     //     chatGPT();
     //   }, []); // chatGPT 함수는 최초 렌더링 시에 실행됨
-      
+
     //   useEffect(() => {
     //     YouTubeSearch();
     //   }, []); // youtubeSearch 함수는 최초 렌더링 시에 실행됨
@@ -93,80 +87,90 @@ const Recommend = () => {
 
     return (
         <div>
-            <div className='recommend_back'>
-                <img className='recommend_img' alt='이미지' src='../assets/recommend_back.jpeg' />
-            </div>
-            
+
+
+
             <div className='GPT_container'>
+                <div className='video_background_rec'>
+                    <video muted autoPlay loop className='background_video_rec'>
+                        <source src="../assets/back_main.mp4" type="video/mp4" />
+                    </video>
+                </div>
                 <div className='GPT_title'>
                     {/* <h1 className='title'>How about?</h1> */}
                     <div className='title_logo'>
-                        <h1 className='title'>Chat-GPT and YouTube</h1>
-                        
+                        <h1 className='title'>SEARCH</h1>
+
                     </div>
                     <p className='sub_title'>그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
                     <div className='input_container'>
-                        <input 
-                            className="input" 
-                            type="text" 
-                            id="keywords" 
-                            name="keywords" 
-                            value={keywords} 
-                            onChange={handleKeywordsChange} 
+                        <input
+                            className="input"
+                            type="text"
+                            id="keywords"
+                            name="keywords"
+                            value={keywords}
+                            onChange={handleKeywordsChange}
                             required
                         />
-                        
+
                         <button className='button_G' onClick={chatGPT}>
                             <img className='openai_image' alt='이미지' src='../assets/openai2.png' />
-                            <h>Chat-GPT</h>
+
                         </button>
                         <button className='button_Y' onClick={YouTubeSearch}>
                             <img className='youtube_image' alt='이미지' src='../assets/youtube.png' />
-                            <h>YouTube</h>
+
                         </button>
-                        
+
                     </div>
-                    <p>빈칸에 재료들을 입력해주세요</p>
+                    <p style={{ color: 'white' }}>빈칸에 재료들을 입력해주세요</p>
                 </div>
 
 
                 {loadingG && (
-                    <p className="loading">Loading...</p>
+                    <p className="loading">GPT Loading...</p>
                 )}
 
                 {responseText && (
                     <div>
-                        <div className="result" >Chat-GPT Result...</div><br />
+                        <div className="result" >
+                            <img className='openai_image_2' alt='이미지' src='../assets/openai2.png' />
+                            Chat-GPT Result
+                        </div><br />
                         <textarea className="result-textbox" value={responseText} readOnly />
                     </div>
                 )}
 
 
-            
-            <div className='Youtube_container'>
-                {loadingY && (
-                    <div className="result" >YouTube Result...</div>
-                )}
-                {videos.map(video => (
-                    <div className='Y_contents' key={video.id.videoId}>
-                        <a
-                            href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img
-                                src={video.snippet.thumbnails.default.url}
-                                alt={video.snippet.title}
-                                style={{ width: '300px', height: 'auto' }}
-                            />
-                        </a>
-                        <div className='Y_description'>
-                            <h3>{video.snippet.title}</h3>
-                            <p>{video.snippet.description}</p>
+
+                <div className='Youtube_container'>
+                    {loadingY && (
+                        <div className="result" >
+                            <img className='youtube_image_2' alt='이미지' src='../assets/youtube.png' />
+                            YouTube Result
                         </div>
-                    </div>
-                ))}
-            </div>
+                    )}
+                    {videos.map(video => (
+                        <div className='Y_contents' key={video.id.videoId}>
+                            <a
+                                href={`https://www.youtube.com/watch?v=${video.id.videoId}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src={video.snippet.thumbnails.default.url}
+                                    alt={video.snippet.title}
+                                    style={{ width: '200px', height: 'auto' }}
+                                />
+                            </a>
+                            <div className='Y_description'>
+                                <h3>{video.snippet.title}</h3>
+                                <p>{video.snippet.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
 
             </div>
 
