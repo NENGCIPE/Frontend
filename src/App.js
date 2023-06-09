@@ -24,7 +24,7 @@ function App() {
       <Route path="/scrap" element={<div><Header/><Scrap/></div>}/>
       <Route path="/mypage" element={<div><Header/><MyPage/></div>}/>
       <Route path="/editmyinfo" element={<div><EditMyInfo/></div>}/>
-      <Route path="/UserGuide" element={<div><UserGuide/></div>}/>
+      <Route path="/UserGuide" element={<div><Header/><UserGuide/></div>}/>
       <Route path="/oauth2" element={<KakaoRedirect/>}/>
     </Routes>
   );
