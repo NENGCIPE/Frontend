@@ -41,9 +41,10 @@ function Home() {
                     <div className='home_intro'>
                         <div className='nengcipe_info'>
                             <div className='nengcipe_info_script'>
-                                <h1>Find<br />Recipe<br />In refrigerator</h1>
+                                {/* <h1>Find<br />Recipe<br />In refrigerator</h1> */}
+                                <img className='findyourrecipe_logo' alt='이미지' src='../assets/findyourrecipe.png' />
                                 <p className='nengcipe_info_context'>냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
-                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo.png' />  
+                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo_black.png' />  
                             </div>
 
                             <div className='nengcipe_info_btn'>

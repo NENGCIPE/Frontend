@@ -11,6 +11,11 @@
     justify-content: center;
     align-items: center;
 }
+.findyourrecipe_logo{
+    margin-top: 50px;
+    margin-bottom: -50px;
+    width: 500px;
+}
 .home_logo{
     margin-top: 170px;
     width: 400px;
