@@ -23,8 +23,11 @@ function Scrap() {
     return (
         <div className='Scrap'>
             <div className='page_name'>
-                <h1>Scrap</h1>
+                <h1 className='page_name_1'>Remember ME :D</h1><br />
+                <div className="title_p">스크랩한 레시피를 잊지마세요!</div>
+                <div className='scrap_title_box'>SCRAP!</div>
             </div>
+            
             <div className='scrap_list'>
                 {scrapList.map((item, index) => (
                     <div className='scrap_container' onClick={() => navigate(`/recipe/${item.recipe.id}`)}>

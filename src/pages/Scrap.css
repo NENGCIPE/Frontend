@@ -10,6 +10,30 @@
 
 .page_name {
   font-size: 40px;
+  margin-bottom: 100px;
+
+
+}
+
+.title_p {
+  margin-top: -100px;
+  font-size: 20px;
+  margin-left: 5px;
+}
+.scrap_title_box{
+  margin-top: -45px;
+  margin-left: 500px;
+  width: 150px;
+  height: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(255, 196, 0);
+  border: 3px solid rgb(0, 0, 0);
+  padding: 7px;
+  text-align: center;
+  border-radius: 10px;
+  transform: rotate(-15deg)
 }
 
 .scrap_list {
@@ -17,6 +41,9 @@
   grid-template-columns: repeat(3, 420px);
   grid-template-rows: repeat(3, 420px);
   margin-bottom: 100px;
+  padding: 50px;
+  background-color: rgba(155,155,155,0.3);
+  border-radius: 10px;
 }
 
 .scrap_container {
