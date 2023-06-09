@@ -1,7 +1,7 @@
 .card_container {
     width: 380px;
-    height: 320px;
-    background-color: white;
+    height: 380px;
+    border: 1px solid black;
     border-radius: 5px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
 }
@@ -12,17 +12,27 @@
 }
 
 .card_img {
+    position: relative;
     width: 380px;
-    height: 230px;
+    height: 380px;
     border-radius: 5px;
     object-fit: cover;
+    z-index: 1;
 }
 
 .card_info {
+    position: relative;
     display: flex;
     font-size: 20px;
     font-family: 'Noto Sans KR';
-    margin-top: 20px;
+    margin-top: -82px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0, 0.6);
+    z-index: 2;
+    color: white;
+    border-radius: 5px;
+
+    
 }
 
 .card_title{
