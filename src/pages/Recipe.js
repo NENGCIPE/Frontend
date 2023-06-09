@@ -17,6 +17,47 @@ function Recipe() {
     //const [is_scraped, setscraped] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [recipe, setRecipe] = useState('[]');
+    // const [scrapList, setScrapList] = useState([]);
+
+    useEffect(() => {
+    const getScrap = async () => {
+        try {
+        const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
+            headers: {
+            Authorization: sessionStorage.getItem('jwt')
+            }
+        });
+            const matchingRecipe = (data) => {
+                const recipeMine = data.find(item => item.recipe.id === recipeID)
+                return recipeMine
+            }
+            if (matchingRecipe) {
+                console.log("Matching recipe found!");
+                setIsHeartFull(true);
+                // console.log(matchingRecipe);
+            } else {
+                console.log("No matching recipe found.");
+            }
+        return data.result;
+        } catch (error) {
+        console.error("Error fetching scrap list:", error);
+        return [];
+        }
+    };
+
+    getScrap();//.then(result => setScrapList(result));
+    }, [recipeID]);
+
+    
+
+
+
+    // findMine(scrapList)
+    
+    //console.log(findMine(scrapList))
+    // console.log(scrapList.recipe.id)
+
+
 
     useEffect(() => {
 
