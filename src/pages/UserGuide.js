@@ -25,9 +25,9 @@ function UserGuide() {
         <div className='back'>
 
             <div className='title_logo_Userguide'>
-                <h1 className='title_Userguide'>User guide</h1>
-                
-                <p className='sub_title_Userguide'>버튼을 눌러 유저가이드를 살펴보세요!</p>
+                {/* <h1 className='title_Userguide'>User guide</h1> */}
+                <img className='guide_logo' alt='이미지' src='../assets/nengcipe_logo.png' />  
+                <p className='sub_title_Userguide'>아래 버튼을 눌러 유저가이드를 살펴보세요!</p>
                 {/* <a href="https://kr.freepik.com/free-photo/frying-pan-with-vegetables_10095814.htm#query=%EC%9A%94%EB%A6%AC&position=9&from_view=search&track=sph">작가 Racool_studio</a> 출처 Freepik */}
                 <div className='btn_container'>
                     <button className="btn"onClick={handleButton2Click}> PREV </button>
@@ -35,7 +35,7 @@ function UserGuide() {
                 </div>
                 
                 <p className='sub_title_Userguide'><button onClick={chkAuth} className='btn_HOME' >Back to HOME</button></p>
-                <img className='guide_logo' alt='이미지' src='../assets/nengcipe_logo.png' />            
+                          
             </div>
             
             <div className='guide_container'>
