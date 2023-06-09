@@ -119,6 +119,7 @@ function Nengjanggo() {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             })
+            console.log(data.result);
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
@@ -163,7 +164,6 @@ function Nengjanggo() {
                     
                 </div>
             </div>
-            
             <div className='fridge'>
                 <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
                 <div className='fridge_container'>
