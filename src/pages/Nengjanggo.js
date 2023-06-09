@@ -122,7 +122,6 @@ function Nengjanggo() {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             })
-            console.log(data.result);
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
@@ -172,7 +171,8 @@ function Nengjanggo() {
                 <div className='fridge_container'>
                     <div className='fridge_box'>
                         {fridgeList.map((item, index) => (
-                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={"-7"} color={"green"} />
+                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
+                             color={"green"} />
                         ))}
                     </div>
                 </div>
@@ -222,7 +222,9 @@ function Nengjanggo() {
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
                                     onUpdateName={(value) => onUpdateItem(index, 'ingredName', value)}
                                     onUpdateCount={(value) => onUpdateItem(index, 'quantity', value)}
-                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)} />
+                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)} 
+                                    onUpdateDate={(value) => onUpdateItem(index, 'expirationDate', value)}
+                                    />
                             ))}
                         </div>
                         <button className='btn_addItemtoFridge' onClick={addIngred}>추가</button>

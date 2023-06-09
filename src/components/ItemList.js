@@ -5,14 +5,22 @@ import DatePicker from "react-datepicker"
 import { ko } from 'date-fns/esm/locale';
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 
-function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateCategory}) {
+function ItemList({ name, count, onRemove, onUpdateName, onUpdateCount, onUpdateCategory, onUpdateDate }) {
     const mainCategory = ["육류", "채소류", "해물류", "유제품", "가공식품류", "건어물류", "과일류", "견과류", "곡류", "기타"]
     const [category, setCategory] = useState('');
     const [detailCategory, setDetailCategory] = useState('');
     const [title, setTitle] = useState(name);
     const [amount, setAmount] = useState(count);
-    const [inputDate, setInputDate] = useState(new Date());
     const [expiryDate, setExpiryDate] = useState(new Date());
+
+    const handleDateChange = (date) => {
+        setExpiryDate(date)
+        const year = date.getFullYear();
+        const month = ('0' + (date.getMonth() + 1)).slice(-2);
+        const day = ('0' + date.getDate()).slice(-2);
+        const dateStr = `${year}-${month}-${day}`;
+        onUpdateDate(dateStr)
+    }
 
     const handleCategoryChange = () => {
         onUpdateCategory(`${category}/${detailCategory}`)
@@ -24,14 +32,14 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
 
     const handleAmount = (type) => {
         if (type === "plus") {
-          setAmount(amount + 1);
-          onUpdateCount(amount + 1);
+            setAmount(amount + 1);
+            onUpdateCount(amount + 1);
         } else {
-          if (amount === 1) return;
-          setAmount(amount - 1);
-          onUpdateCount(amount - 1);
+            if (amount === 1) return;
+            setAmount(amount - 1);
+            onUpdateCount(amount - 1);
         }
-    };  
+    };
 
     return (
         <div className='item_list'>
@@ -58,35 +66,21 @@ function ItemList({name, count, onRemove, onUpdateName, onUpdateCount, onUpdateC
                     <AiOutlinePlusCircle className='btn_amount' onClick={() => { handleAmount("plus") }} />
                 </div>
                 <div className='input_box'>
-                    <span>보관날짜</span>
-                    <DatePicker
-                        className='input_date'
-                        dateFormat="yyyy년 MM월 dd일"
-                        selected={inputDate}
-                        onChange={(date) => { setInputDate(date) }}
-                        selectsStart
-                        startDate={inputDate}
-                        endDate={expiryDate}
-                        locale={ko}
-                    />
-                </div>
-                <div className='input_box'>
                     <span>소비기한</span>
                     <DatePicker
                         className='input_date'
                         dateFormat="yyyy년 MM월 dd일"
                         selected={expiryDate}
-                        onChange={(date) => { setExpiryDate(date) }}
+                        onChange={(date) => { handleDateChange(date) }}
                         selectsEnd
                         endDate={expiryDate}
-                        minDate={inputDate}
+                        minDate={new Date()}
                         locale={ko}
                     />
                 </div>
                 <div className='input_box'>
-                <img onClick={() => onRemove(name)} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='delete'/>
+                    <img onClick={() => onRemove(name)} className='ingredient_icon_remove' src={'../assets/icon_remove.png'} alt='delete' />
                 </div>
-
             </div>
         </div>
     );
