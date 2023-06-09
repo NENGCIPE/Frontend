@@ -36,7 +36,7 @@
     justify-content: center;
     /* background-color: rgb(82, 82, 82); */
     width: 500px;
-    height: 900px;
+    height: 800px;
     background-image: url('/public/assets/home_image1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,7 +61,7 @@
 .guide_container{
     height: 800px;
     width: 800px;
-    margin-top: 70px;
+    margin-top: 20px;
 }
 .user-guide {
     /* margin-left: 400px; */
