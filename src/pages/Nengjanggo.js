@@ -128,7 +128,7 @@ function Nengjanggo() {
         <div className='Nengjanggo'>
             <div className='page_name_container'>
                 <div className='page_name'>
-                <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_gray.png' />
+                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
                 </div>
                 <div className='menu_container'>
                     <div className='expiry_menu'>
