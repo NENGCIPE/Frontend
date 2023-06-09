@@ -12,6 +12,9 @@ import ItemList from '../components/ItemList';
 // import CartList from '../components/CartList';
 
 function Nengjanggo() {
+        useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top when the component mounts
+      }, []);
     // const [ingredModal, setIngredModal] = useState(false);
     // const [checkedList, setCheckedList] = useState([]);
     // const handleCheck = (e) => {
