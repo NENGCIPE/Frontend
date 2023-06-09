@@ -61,19 +61,32 @@ function Recipe() {
 
 
     useEffect(() => {
-
-
         const getRecipe = async () => {
-
             const { data } = await axios.get(`https://nengcipe-server.store/api/recipes/${recipeID}`, {
                 headers: {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             });
             return data.result;
+        }
+        getRecipe().then(result => setRecipe(result));
 
-
-        }; getRecipe().then(result => setRecipe(result));
+        const chkScrap = async () => {
+            const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
+                headers: {
+                Authorization: sessionStorage.getItem('jwt')
+                }
+            });
+            const chkList = data.result;
+            const recipeMine = chkList.find(item => (item.recipe.id === parseInt(recipeID)))
+            if (recipeMine !== undefined) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        chkScrap().then(result => setIsHeartFull(result));
     }, [recipeID]);
 
 
