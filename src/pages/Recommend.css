@@ -17,14 +17,14 @@
 /* position: absolute;
 top: 0;
 left: 0; */
-width: 1500px;
+width: 1400px;
 height: 100%;
 z-index: -1;
 }
 
 .background_video_rec {
-width: 1500px;
-height: 800px;
+width: 1400px;
+height: 730px;
 object-fit: cover;
 }
 
