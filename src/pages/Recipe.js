@@ -19,34 +19,35 @@ function Recipe() {
     const [recipe, setRecipe] = useState('[]');
     // const [scrapList, setScrapList] = useState([]);
 
-    useEffect(() => {
-    const getScrap = async () => {
-        try {
-        const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
-            headers: {
-            Authorization: sessionStorage.getItem('jwt')
-            }
-        });
-            const matchingRecipe = (data) => {
-                const recipeMine = data.find(item => item.recipe.id === recipeID)
-                return recipeMine
-            }
-            if (matchingRecipe) {
-                console.log("Matching recipe found!");
-                setIsHeartFull(true);
-                // console.log(matchingRecipe);
-            } else {
-                console.log("No matching recipe found.");
-            }
-        return data.result;
-        } catch (error) {
-        console.error("Error fetching scrap list:", error);
-        return [];
-        }
-    };
+    // useEffect(() => {
+    // const getScrap = async () => {
+    //     try {
+    //     const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
+    //         headers: {
+    //         Authorization: sessionStorage.getItem('jwt')
+    //         }
+    //     });
+    //         const matchingRecipe = (data) => {
+    //             const recipeMine = data.find(item => item.recipe.id === recipeID)
+    //             console.log("console.log",{recipeMine})
+    //             return recipeMine
+    //         }
+    //         if (matchingRecipe) {
+    //             console.log("Matching recipe found!");
+    //             setIsHeartFull(true);
+    //             // console.log(matchingRecipe);
+    //         } else {
+    //             console.log("No matching recipe found.");
+    //         }
+    //     return data.result;
+    //     } catch (error) {
+    //     console.error("Error fetching scrap list:", error);
+    //     return [];
+    //     }
+    // };
 
-    getScrap();//.then(result => setScrapList(result));
-    }, [recipeID]);
+    // getScrap();//.then(result => setScrapList(result));
+    // }, [recipeID]);
 
     
 
