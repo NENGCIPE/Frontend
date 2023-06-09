@@ -25,6 +25,7 @@
 .header_logo_icon {
     width: 'auto';
     height: 75px;
+    /* margin-left: 50px; */
 }
 
 .header_menu {
@@ -45,8 +46,8 @@
 }
 
 .header_option {
-    margin-left: 70px;
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 
 }
 
