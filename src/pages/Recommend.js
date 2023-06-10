@@ -99,7 +99,8 @@ const Recommend = () => {
                 <div className='GPT_title'>
                     {/* <h1 className='title'>How about?</h1> */}
                     <div className='title_logo'>
-                        <h1 className='title_recommend'>SEARCH</h1>
+                        {/* <h1 className='title_recommend'>SEARCH</h1> */}
+                        <img className='search_logo' alt='이미지' src='../assets/search.png' />
 
                     </div>
                     <p className='sub_title'>그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
