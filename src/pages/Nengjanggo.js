@@ -12,9 +12,9 @@ import ItemList from '../components/ItemList';
 // import CartList from '../components/CartList';
 
 function Nengjanggo() {
-        useEffect(() => {
+    useEffect(() => {
         window.scrollTo(0, 0); // Scroll to the top when the component mounts
-      }, []);
+    }, []);
     // const [ingredModal, setIngredModal] = useState(false);
     // const [checkedList, setCheckedList] = useState([]);
     // const handleCheck = (e) => {
@@ -34,7 +34,6 @@ function Nengjanggo() {
     const navigate = useNavigate();
     const [camModal, setCamModal] = useState(false);
     const [itemModal, setItemModal] = useState(false);
-
     const [image, setImage] = useState("");
     const webcamRef = useRef(null);
     const capture = () => {
@@ -105,6 +104,31 @@ function Nengjanggo() {
         setItemList([]);
     };
 
+    const calDdate = (date) => {
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth() + 1;
+        var day = currentDate.getDate();
+        var Exyear = parseInt(date.substring(0, 4));
+        var Exmonth = parseInt(date.substring(5, 7));
+        var Exday = parseInt(date.substring(8, 10));
+
+        var stDate = new Date(year, month, day);
+        var endDate = new Date(Exyear, Exmonth, Exday);
+        const btMs = endDate.getTime() - stDate.getTime();
+        var btDay = btMs / (1000 * 60 * 60 * 24);
+
+        if (btDay < 2) {
+            return 'red';
+        }
+        else if (btDay < 4) {
+            return 'orange';
+        }
+        else {
+            return 'green';
+        }
+    }
+
     useEffect(() => {
         const getIngred = async () => {
             const { data } = await axios.get("https://nengcipe-server.store/api/users/fridge", {
@@ -125,7 +149,7 @@ function Nengjanggo() {
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
-    }, [])
+    }, [fridgeList])
 
     return (
         <div className='Nengjanggo'>
@@ -137,33 +161,42 @@ function Nengjanggo() {
                     <div className='expiry_menu'>
                         <div className="imminent_container">
                             <input id="dropdown1" type="checkbox" />
-                                <label className="dropdownLabel1" for="dropdown1">
-                                    <div>소비기한 임박 (3)</div>
-                                    <FaAngleDown className="caretIcon" />
-                                </label>
+                            <label className="dropdownLabel1" for="dropdown1">
+                                <div>소비기한 임박</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
                             <div className="content">
                                 <ul>
-                                    <li>우유 500ml (D-1) / 냉장실</li>
-                                    <li>소고기 300g (D-1) / 냉장실</li>
-                                    <li>계란 3알 (D-2) / 냉장실</li>
+                                    {fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'orange') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null; // 특정 날짜가 아닌 경우에는 null을 반환하여 출력하지 않음
+                                        }
+                                    })}
                                 </ul>
                             </div>
                         </div>
                         <div className="expire_container">
-                        <input id="dropdown2" type="checkbox" />
+                            <input id="dropdown2" type="checkbox" />
                             <label className="dropdownLabel2" for="dropdown2">
-                                <div>소비기한 만료 (2)</div>
+                                <div>소비기한 만료</div>
                                 <FaAngleDown className="caretIcon" />
                             </label>
-                        <div className="content">
-                            <ul>
-                                <li>요플레 / 냉장실</li>
-                                <li>닭가슴살 / 냉동실</li>
-                            </ul>
+                            <div className="content">
+                                <ul>
+                                    {fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'red') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null; // 특정 날짜가 아닌 경우에는 null을 반환하여 출력하지 않음
+                                        }
+                                    })}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    
+
                 </div>
             </div>
             <div className='fridge'>
@@ -172,7 +205,7 @@ function Nengjanggo() {
                     <div className='fridge_box'>
                         {fridgeList.map((item, index) => (
                             <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
-                             color={"green"} />
+                                color={"green"} />
                         ))}
                     </div>
                 </div>
@@ -222,9 +255,9 @@ function Nengjanggo() {
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
                                     onUpdateName={(value) => onUpdateItem(index, 'ingredName', value)}
                                     onUpdateCount={(value) => onUpdateItem(index, 'quantity', value)}
-                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)} 
+                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)}
                                     onUpdateDate={(value) => onUpdateItem(index, 'expirationDate', value)}
-                                    />
+                                />
                             ))}
                         </div>
                         <button className='btn_addItemtoFridge' onClick={addIngred}>추가</button>
@@ -265,7 +298,7 @@ function Nengjanggo() {
                 <div className='recipe_list'>
                     {recipeList.map((item, index) => (
                         <div className='recipelist_container' onClick={() => navigate(`/recipe/${item.recipeId}`)}>
-                            <Card img={item.imgUrl} title={item.recipeName}/>
+                            <Card img={item.imgUrl} title={item.recipeName} />
                         </div>
                     ))}
                 </div>
