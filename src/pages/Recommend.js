@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Recommend = () => {
-    const [keywords, setKeywords] = useState('빈칸에 재료를 입력하세요');
+    const [keywords, setKeywords] = useState('');
     const [loadingG, setLoadingG] = useState(false);
     const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
@@ -18,7 +18,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = 'sk-';
+    const api_key = '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';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -62,7 +62,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: '',
+                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
@@ -113,6 +113,7 @@ const Recommend = () => {
                             value={keywords}
                             onChange={handleKeywordsChange}
                             required
+                            placeholder="빈칸에 재료를 입력하세요"
                         />
 
                         <button className='button_G' onClick={chatGPT}>
