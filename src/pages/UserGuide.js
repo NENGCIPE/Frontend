@@ -15,6 +15,7 @@ function UserGuide() {
     const [showContainer, setShowContainer] = useState(1);
 
     const handleButton1Click = () => {
+        // 장수에 맞게 수정 3장인경우 3
         if (showContainer < 3) { setShowContainer(showContainer + 1); }
     };
     const handleButton2Click = () => {
@@ -44,6 +45,7 @@ function UserGuide() {
                 <div className='guide_container'>
                     <div className="user-guide">
                         <div className={`container ${showContainer ? `transformed${showContainer}` : ''}`}>
+                            {/* 장수에 맞게 추가 */}
                             <div className="inner">
                                 <img alt="language" src="../assets/Userguide_1.png" style={{ width: '800px', height: 'auto' }} />
                             </div>

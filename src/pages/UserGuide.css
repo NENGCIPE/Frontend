@@ -71,6 +71,7 @@
 
   }
 .container{
+    /* 장수에 맞게 너비 수정 한장당 너비 800px */
     width: 2400px;
 
     transition: transform 0.5s;
@@ -83,6 +84,8 @@
 .inner img{
     width: 100%;
 }
+
+/* 장수에 맞게 추가 */
 .container.transformed1 {
     transform: translate(0px);
   }
@@ -94,6 +97,8 @@
 .container.transformed3 {
     transform: translate(-1600px);
   }
+
+  
 .btn_container{
     display: flex;
     align-items: center;
