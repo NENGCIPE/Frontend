@@ -65,7 +65,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='home_section2'>
+                <div className='home_section2' data-aos="fade-right">
                     {/* <div className={`home_section2_intro ${inView1 ? 'animate1' : ''}`} ref={ref1}> */}
                     <div className="home_section2_intro">
                         <div className='home_section2_intro_context' data-aos="fade-left">
@@ -73,11 +73,11 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='home_section3'>
+                <div className='home_section3' data-aos="fade-left">
                     <div className="home_section3_intro">
                         <div className='home_section3_intro_context'>
                             {/* <p className={`home_section3_text ${inView2 ? 'animate2' : ''}`} ref={ref2}> */}
-                                <p className='home_section3_text' data-aos="fade-up">
+                                <p className='home_section3_text' data-aos="fade-right">
                                 무슨 요리를 할지 생각하기엔<br /> 너무나 바쁜 현대인을 위한 서비스</p>
                         </div>
                     </div>
