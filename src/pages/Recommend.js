@@ -26,7 +26,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = '';
+    const api_key = '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';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -70,7 +70,7 @@ const Recommend = () => {
                 'https://www.googleapis.com/youtube/v3/search',
                 {
                     params: {
-                        key: '',
+                        key: 'AIzaSyC8PWzJNCmAhHpWJ2IKKlaX25Dltp8S0Bc',
                         q: `${keywords}으로 만드는 자취생 레시피`,
                         type: 'video',
                         part: 'snippet'
@@ -139,7 +139,10 @@ const Recommend = () => {
 
 
                 {loadingG && (
-                    <p className="loading">GPT Loading...</p>
+                    <div className='gpt_loading'>
+                        <img className='openai_image_loading' alt='이미지' src='../assets/Loading_icon.gif' />
+                        <p className="loading">GPT의 답변을 기다리고 있어요!<br />최대 20초가 소요될 수 있어요...</p>
+                        </div>
                 )}
 
                 {responseText && (

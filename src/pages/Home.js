@@ -9,14 +9,6 @@ import 'aos/dist/aos.css'
 function Home() {
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
-
-    useEffect(()=> {
-        AOS.init({duration: 1200
-        });
-    }, []);
-    
-
-    
     const chkAuth = () => {
         if (isLogin === true) {
             navigate('/nengjanggo')
@@ -39,6 +31,10 @@ function Home() {
             setIsLogin(false);
         }
     }, [])
+    useEffect(()=> {
+        AOS.init({duration: 1200
+        });
+    }, []);
 
     return (
         <div className='home'>
@@ -82,7 +78,7 @@ function Home() {
                         <div className='home_section3_intro_context'>
                             {/* <p className={`home_section3_text ${inView2 ? 'animate2' : ''}`} ref={ref2}> */}
                                 <p className='home_section3_text' data-aos="fade-up">
-                                어떤 요리를 할지 생각하기에는<br />  너무나 바쁜 현대인을 위한!</p>
+                                무슨 요리를 할지 생각하기엔<br /> 너무나 바쁜 현대인을 위한 서비스</p>
                         </div>
                     </div>
                 </div>
