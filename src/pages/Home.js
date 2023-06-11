@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css'
 import { useNavigate } from 'react-router-dom';
+// import { useInView } from 'react-intersection-observer';
+// import './animation.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 function Home() {
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
+
+    useEffect(()=> {
+        AOS.init({duration: 1200
+        });
+    }, []);
+    
+
+    
     const chkAuth = () => {
         if (isLogin === true) {
             navigate('/nengjanggo')
@@ -38,18 +50,18 @@ function Home() {
                         <source src="../assets/back_main.mp4" type="video/mp4"/>
                         </video>
                     </div>
-                    <div className='home_intro'>
+                    <div className='home_intro' data-aos="fade-right">
                         <div className='nengcipe_info'>
                             <div className='nengcipe_info_script'>
                                 {/* <h1>Find<br />Recipe<br />In refrigerator</h1> */}
-                                <img className='findyourrecipe_logo' alt='이미지' src='../assets/findyourrecipe.png' />
-                                <p className='nengcipe_info_context'>냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
-                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo_black.png' />  
+                                <img className='findyourrecipe_logo' alt='이미지' src='../assets/findyourrecipe.png' data-aos="fade-right" data-aos-delay="200"/>
+                                <p className='nengcipe_info_context' data-aos="fade-right" data-aos-delay="200">냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
+                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo_black.png' data-aos="fade-right" data-aos-delay="200"/>  
                             </div>
 
-                            <div className='nengcipe_info_btn'>
-                                <button onClick={chkAuth} className='btn_nengcipe_1' > nengcipe start now</button>
-                                <button onClick={chkAuth_2} className='btn_nengcipe_2' >nengcipe user guide</button>
+                            <div className='nengcipe_info_btn' >
+                                <button onClick={chkAuth} className='btn_nengcipe_1'  data-aos="fade-up" data-aos-delay="600"> nengcipe start now</button>
+                                <button onClick={chkAuth_2} className='btn_nengcipe_2'  data-aos="fade-up" data-aos-delay="600">nengcipe user guide</button>
                                 {/* <img className='arrow' alt='이미지' src='../arrow.png' style={{ width: '25px', height: '25px' }} /> */}
                             </div>
                             
@@ -58,16 +70,19 @@ function Home() {
                     </div>
                 </div>
                 <div className='home_section2'>
-                    <div className='home_section2_intro'>
-                        <div className='home_section2_intro_context'>
+                    {/* <div className={`home_section2_intro ${inView1 ? 'animate1' : ''}`} ref={ref1}> */}
+                    <div className="home_section2_intro">
+                        <div className='home_section2_intro_context' data-aos="fade-left">
                             <p className='home_section_2_txt'>혼자사는 자취인들에게<br /> 잊혀지기 쉬운 냉장고 관리!</p>
                         </div>
                     </div>
                 </div>
                 <div className='home_section3'>
-                    <div className='home_section3_intro'>
+                    <div className="home_section3_intro">
                         <div className='home_section3_intro_context'>
-                            <p className='home_section_txt'>가진 재료들로 어떤 요리를 할지<br /> 생각하기에는 너무나 바쁜 현대인!</p>
+                            {/* <p className={`home_section3_text ${inView2 ? 'animate2' : ''}`} ref={ref2}> */}
+                                <p className='home_section3_text' data-aos="fade-up">
+                                어떤 요리를 할지 생각하기에는<br />  너무나 바쁜 현대인을 위한!</p>
                         </div>
                     </div>
                 </div>
@@ -82,12 +97,12 @@ function Home() {
                         <img className='recipe_image' alt='이미지' src='../assets/recipe3.png' />
                     </div>
                     <div className='home_section4_intro_below'>
-                        <p className='home_section_txt'>지금부터 냉시피와 함께 해보세요!</p>
+                        <p className='home_section_txt'data-aos="fade-up">지금부터 냉시피와 함께 해보세요!</p>
                     </div>
                     <div className='home_section4_intro_btn'>
                         {/* <button className='home_section4_btn_nengcipe' onClick={chkAuth}>냉시피 시작하기</button> */}
-                        <button onClick={chkAuth} className='btn_nengcipe_1' > nengcipe start now</button>
-                        <button onClick={chkAuth_2} className='btn_nengcipe_2' >nengcipe user guide</button>
+                        <button onClick={chkAuth} className='btn_nengcipe_1' data-aos="fade-up" data-aos-delay="200"> nengcipe start now</button>
+                        <button onClick={chkAuth_2} className='btn_nengcipe_2' data-aos="fade-up" data-aos-delay="200">nengcipe user guide</button>
                     </div>
                 </div>
             </div>

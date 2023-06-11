@@ -1,15 +1,23 @@
 //import React from 'react';
 import './Recommend.css';
 //import { useNavigate } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 const Recommend = () => {
     const [keywords, setKeywords] = useState('');
     const [loadingG, setLoadingG] = useState(false);
     const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
+    useEffect(()=> {
+        AOS.init({
+            duration: 1000,
+            offset: 300
 
+        });
+    }, []);
 
 
     const handleKeywordsChange = (e) => {
@@ -18,7 +26,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = 'sk-';
+    const api_key = '';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -96,15 +104,15 @@ const Recommend = () => {
                         <source src="../assets/back_main.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className='GPT_title'>
+                <div className='GPT_title'data-aos="fade-up">
                     {/* <h1 className='title'>How about?</h1> */}
                     <div className='title_logo'>
                         {/* <h1 className='title_recommend'>SEARCH</h1> */}
                         <img className='search_logo' alt='이미지' src='../assets/search.png' />
 
                     </div>
-                    <p className='sub_title'>그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
-                    <div className='input_container'>
+                    <p className='sub_title' data-aos="fade-up" data-aos-delay="200">그래도 고민이신가요? Chat_GPT와 YouTube에게 물어보세요!</p>
+                    <div className='input_container' data-aos="fade-up"data-aos-delay="300">
                         <input
                             className="input"
                             type="text"
@@ -126,7 +134,7 @@ const Recommend = () => {
                         </button>
 
                     </div>
-                    <p style={{ color: 'white' }}>스크롤을 내려 검색 결과를 확인하세요!</p>
+                    <p style={{ color: 'white' }} data-aos="fade-up" data-aos-delay="500">스크롤을 내려 검색 결과를 확인하세요!</p>
                 </div>
 
 
