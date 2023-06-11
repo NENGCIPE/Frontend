@@ -101,8 +101,8 @@ function Home() {
                     </div>
                     <div className='home_section4_intro_btn'>
                         {/* <button className='home_section4_btn_nengcipe' onClick={chkAuth}>냉시피 시작하기</button> */}
-                        <button onClick={chkAuth} className='btn_nengcipe_1' data-aos="fade-up" data-aos-delay="200"> nengcipe start now</button>
-                        <button onClick={chkAuth_2} className='btn_nengcipe_2' data-aos="fade-up" data-aos-delay="200">nengcipe user guide</button>
+                        <button onClick={chkAuth} className='btn_nengcipe_1' data-aos="fade-up" > nengcipe start now</button>
+                        <button onClick={chkAuth_2} className='btn_nengcipe_2' data-aos="fade-up">nengcipe user guide</button>
                     </div>
                 </div>
             </div>
