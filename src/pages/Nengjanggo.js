@@ -9,9 +9,16 @@ import Webcam from 'react-webcam';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ItemList from '../components/ItemList';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 // import CartList from '../components/CartList';
 
 function Nengjanggo() {
+
+    useEffect(()=> {
+        AOS.init({duration: 1200
+        });
+    }, []);
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll to the top when the component mounts
     }, []);
@@ -155,9 +162,9 @@ function Nengjanggo() {
         <div className='Nengjanggo'>
             <div className='page_name_container'>
                 <div className='page_name'>
-                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
+                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png'/>
                 </div>
-                <div className='menu_container'>
+                <div className='menu_container'data-aos="fade-up"data-aos-delay="200">
                     <div className='expiry_menu'>
                         <div className="imminent_container">
                             <input id="dropdown1" type="checkbox" />
