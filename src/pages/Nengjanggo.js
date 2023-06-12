@@ -101,6 +101,7 @@ function Nengjanggo() {
         setItemModal(false);
         setCamModal(false);
         setItemList([]);
+        window.location.reload();
     };
 
     const calDdate = (date) => {

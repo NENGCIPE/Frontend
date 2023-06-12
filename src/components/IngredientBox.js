@@ -35,6 +35,7 @@ function IngredientBox({ icon, id, name, amount, date}) {
                     alert("냉장고 재료 삭제 성공")
                 }
             })
+        window.location.reload();
     }
     const setDdate = (date) => {
         var currentDate = new Date();
