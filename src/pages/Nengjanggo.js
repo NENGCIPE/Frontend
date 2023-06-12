@@ -14,14 +14,6 @@ import 'aos/dist/aos.css'
 // import CartList from '../components/CartList';
 
 function Nengjanggo() {
-
-    useEffect(()=> {
-        AOS.init({duration: 1200
-        });
-    }, []);
-    useEffect(() => {
-        window.scrollTo(0, 0); // Scroll to the top when the component mounts
-    }, []);
     // const [ingredModal, setIngredModal] = useState(false);
     // const [checkedList, setCheckedList] = useState([]);
     // const handleCheck = (e) => {
@@ -137,6 +129,12 @@ function Nengjanggo() {
     }
 
     useEffect(() => {
+        AOS.init({
+            duration: 1200
+        });
+
+        window.scrollTo(0, 0);
+
         const getIngred = async () => {
             const { data } = await axios.get("https://nengcipe-server.store/api/users/fridge", {
                 headers: {
@@ -156,15 +154,15 @@ function Nengjanggo() {
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
-    }, [fridgeList])
+    }, [])
 
     return (
         <div className='Nengjanggo'>
             <div className='page_name_container'>
                 <div className='page_name'>
-                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png'/>
+                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
                 </div>
-                <div className='menu_container'data-aos="fade-up"data-aos-delay="200">
+                <div className='menu_container' data-aos="fade-up" data-aos-delay="200">
                     <div className='expiry_menu'>
                         <div className="imminent_container">
                             <input id="dropdown1" type="checkbox" />
@@ -174,7 +172,7 @@ function Nengjanggo() {
                             </label>
                             <div className="content">
                                 <ul>
-                                    {fridgeList.map((item, index) => {
+                                    {fridgeList && fridgeList.map((item, index) => {
                                         if (calDdate(item.expiratioinDate) === 'orange') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
@@ -192,7 +190,7 @@ function Nengjanggo() {
                             </label>
                             <div className="content">
                                 <ul>
-                                    {fridgeList.map((item, index) => {
+                                    {fridgeList && fridgeList.map((item, index) => {
                                         if (calDdate(item.expiratioinDate) === 'red') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
@@ -203,14 +201,13 @@ function Nengjanggo() {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div className='fridge'>
                 <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
                 <div className='fridge_container'>
                     <div className='fridge_box'>
-                        {fridgeList.map((item, index) => (
+                        {fridgeList && fridgeList.map((item, index) => (
                             <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
                                 color={"green"} />
                         ))}
@@ -223,15 +220,17 @@ function Nengjanggo() {
                 <div className={camModal ? 'modal' : 'modal_hidden'}>
                     <div className='modal_overlay'></div>
                     <div className='modal_content'>
-                        <h1 className='webcam_info'>영수증이 화면에 잘 보이게 <br />촬영해주세요</h1>
-                        {image === '' ? <Webcam
-                            audio={false}
-                            width={600}
-                            height={600}
-                            ref={webcamRef}
-                            screenshotFormat='image/jpeg'
-                            imageSmoothing={true} /> : <img className='img_preview' src={image} alt='screenshot' />}
+                        <div className='cam_container'>
+                            {image === '' ? <Webcam
+                                audio={false}
+                                width={600}
+                                height={600}
+                                ref={webcamRef}
+                                screenshotFormat='image/jpeg'
+                                imageSmoothing={true} /> : <img className='img_preview' src={image} alt='screenshot' />}
+                        </div>
                         <div>
+                            <h1 className='webcam_info'>영수증이 화면에 잘 보이게 <br />촬영해주세요</h1>
                             {image !== '' ?
                                 <button onClick={(e) => {
                                     e.preventDefault();
@@ -257,8 +256,8 @@ function Nengjanggo() {
                     <div className='item_modal_content'>
                         <h1 className='item_modal_title'>재료 추가</h1>
                         <button className='btn_additemlist' onClick={onCreate}>+</button>
-                        <p className='btn_additemlist_text' style={{ color: 'black', textAlign : 'center', fontSize : "15px" }}>목록추가</p>
-                        
+                        <p className='btn_additemlist_text' style={{ color: 'black', textAlign: 'center', fontSize: "15px" }}>목록추가</p>
+
                         <div className='item_modal_list'>
                             {itemlist.map((item, index) => (
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
@@ -305,7 +304,7 @@ function Nengjanggo() {
                     </div>
                 </div> */}
                 <div className='recipe_list'>
-                    {recipeList.map((item, index) => (
+                    {recipeList && recipeList.map((item, index) => (
                         <div className='recipelist_container' onClick={() => navigate(`/recipe/${item.recipeId}`)}>
                             <Card img={item.imgUrl} title={item.recipeName} />
                         </div>
