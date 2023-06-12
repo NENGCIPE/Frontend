@@ -90,18 +90,23 @@ function Nengjanggo() {
     };
 
     const addIngred = () => {
-        itemlist.forEach((item) => {
-            axios.post("https://nengcipe-server.store/api/users/fridge", item, {
-                headers: {
-                    Authorization: sessionStorage.getItem('jwt')
-                }
-            })
-        });
-        alert("냉장고에 재료추가가 완료되었습니다.");
-        setItemModal(false);
-        setCamModal(false);
-        setItemList([]);
-        window.location.reload();
+        if (itemlist.length === 0) {
+            alert("재료를 추가해주세요");
+        }
+        else {
+            itemlist.forEach((item) => {
+                axios.post("https://nengcipe-server.store/api/users/fridge", item, {
+                    headers: {
+                        Authorization: sessionStorage.getItem('jwt')
+                    }
+                })
+            });
+            alert("냉장고에 재료추가가 완료되었습니다.");
+            setItemModal(false);
+            setCamModal(false);
+            setItemList([]);
+            window.location.reload();
+        }
     };
 
     const calDdate = (date) => {
@@ -177,7 +182,7 @@ function Nengjanggo() {
                                         if (calDdate(item.expiratioinDate) === 'orange') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
-                                            return null; // 특정 날짜가 아닌 경우에는 null을 반환하여 출력하지 않음
+                                            return null;
                                         }
                                     })}
                                 </ul>
@@ -195,7 +200,7 @@ function Nengjanggo() {
                                         if (calDdate(item.expiratioinDate) === 'red') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
-                                            return null; // 특정 날짜가 아닌 경우에는 null을 반환하여 출력하지 않음
+                                            return null;
                                         }
                                     })}
                                 </ul>
