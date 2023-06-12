@@ -218,12 +218,12 @@ function Nengjanggo() {
                 </div>
             </div>
             <div className='add_item'>
-                <button className='btn_addItem' onClick={() => setCamModal(true)}>재료 추가</button>
+                <button className='btn_addItem' onClick={() => setItemModal(true)}>재료 추가</button>
+                <button className='btn_addItem' onClick={() => setCamModal(true)}>영수증으로 재료 추가</button>
                 <div className={camModal ? 'modal' : 'modal_hidden'}>
                     <div className='modal_overlay'></div>
                     <div className='modal_content'>
-                        <h1 className='webcam_info'>영수증이 화면에 잘 보이게</h1>
-                        <h1 className='webcam_info'>촬영해주세요</h1>
+                        <h1 className='webcam_info'>영수증이 화면에 잘 보이게 <br />촬영해주세요</h1>
                         {image === '' ? <Webcam
                             audio={false}
                             width={600}
@@ -257,6 +257,8 @@ function Nengjanggo() {
                     <div className='item_modal_content'>
                         <h1 className='item_modal_title'>재료 추가</h1>
                         <button className='btn_additemlist' onClick={onCreate}>+</button>
+                        <p className='btn_additemlist_text' style={{ color: 'black', textAlign : 'center', fontSize : "15px" }}>목록추가</p>
+                        
                         <div className='item_modal_list'>
                             {itemlist.map((item, index) => (
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
