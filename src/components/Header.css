@@ -64,13 +64,13 @@
 }
 
 .header_btn2 {
-    width: 120px;
-    height: 50px;
-    font-size: 20px;
-    color: white;
-    background-color: black;
-    border: 2px solid #f2f3f6;
-    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    color: rgb(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     cursor: pointer;
     font-family: 'Noto Sans KR';
 }
