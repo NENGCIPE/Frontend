@@ -39,10 +39,10 @@ function Header() {
                     <div><a href='/'><img className='header_logo_icon' alt='logo' src='../assets/nengcipe_logo.png' /></a></div>
                 </div>
                 <div className='header_menu'>
-                    <div><a href='/'>Home</a></div>
-                    <div><a href={isLogin ? '/nengjanggo' : '/login'}>Nengcipe</a></div>
-                    <div><a href='/recommend'>Recommend</a></div>
-                    <div><a href={isLogin ? '/scrap' : '/login'}>Scrap</a></div>
+                    <div><a href='/'>HOME</a></div>
+                    <div><a href={isLogin ? '/nengjanggo' : '/login'}>NENGCIPE</a></div>
+                    <div><a href='/recommend'>RECOMMEND</a></div>
+                    <div><a href={isLogin ? '/scrap' : '/login'}>SCRAP</a></div>
                 </div>
                 <div className='header_nav'>
                     <div className='header_option'>

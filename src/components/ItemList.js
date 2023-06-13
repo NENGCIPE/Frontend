@@ -8,7 +8,6 @@ import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai";
 function ItemList({ name, count, onRemove, onUpdateName, onUpdateCount, onUpdateCategory, onUpdateDate }) {
     const mainCategory = ["육류", "채소류", "해물류", "유제품", "가공식품류", "건어물류", "과일류", "견과류", "곡류", "기타"]
     const [category, setCategory] = useState('');
-    const [detailCategory, setDetailCategory] = useState('');
     const [title, setTitle] = useState(name);
     const [amount, setAmount] = useState(count);
     const [expiryDate, setExpiryDate] = useState(new Date());
@@ -23,7 +22,7 @@ function ItemList({ name, count, onRemove, onUpdateName, onUpdateCount, onUpdate
     }
 
     const handleCategoryChange = () => {
-        onUpdateCategory(`${category}/${detailCategory}`)
+        onUpdateCategory(`${category}`)
     };
 
     const handleTitleChange = () => {
@@ -53,9 +52,6 @@ function ItemList({ name, count, onRemove, onUpdateName, onUpdateCount, onUpdate
                             </option>
                         ))}
                     </select>
-                </div>
-                <div className='input_box'>
-                    <input className='input_detail' placeholder='소분류 예) 양파, 우유' type="text" value={detailCategory} onChange={(e) => setDetailCategory(e.target.value)} onBlur={handleCategoryChange} />
                 </div>
                 <div className='input_box'>
                     <input className='input_title' placeholder='재료명' type="text" value={title} onChange={(e) => setTitle(e.target.value)} onBlur={handleTitleChange} />

@@ -19,17 +19,16 @@
     margin-left: -50px;
     box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.3);
 }
+.add_item {
+    margin-top: 50px;
+}
 .page_name_container{
     width: 1400px;
-    height: 750px;
+    height: 200px;
     display: flex;
     text-align: center;
     flex-direction: column;
     justify-content: center;
-    background-image: url('/public/assets/nengjanggo_back.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-bottom: 50px;
     /* margin-top: 50px; */
 }
 .page_name {
@@ -160,10 +159,10 @@
 .btn_addItem {
     width: 300px;
     height: 50px;
-    margin-bottom: 30px;
     margin-left: 20px;
     margin-right: 20px;
-    background-color: rgb(115, 115, 115, 0.1);
+    color: white;
+    background-color: black;
     border-radius: 5px;
     border: 1px solid black;
     font-size: 25px;
@@ -228,7 +227,7 @@
 }
 
 .item_modal_list {
-    width: 1100px;
+    width: 880px;
     max-height: 500px;
     overflow: auto;
 }
@@ -237,7 +236,7 @@
     width: 40px;
     height: 40px;
     margin-bottom: 10px;
-    margin-left: 1150px;
+    margin-left: 1000px;
     background-color: black;
     border-radius: 100%;
     border: 1px solid black;
@@ -251,7 +250,7 @@
     height: 40px;
     margin-top: -5px;
     margin-bottom: -80px;
-    margin-left: 1150px;
+    margin-left: 1000px;
     /* background-color: black; */
     /* border-radius: 100%; */
     /* border: 1px solid black; */
@@ -443,7 +442,16 @@
 .nengjanggo_title {
     font-size: 25px;
     font-family: 'Noto Sans KR';
+    display: flex;
+    align-items: center;
+    text-align: center;
     /* color: white; */
+}
+
+.btn_reload {
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .recipe_list {

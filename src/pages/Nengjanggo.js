@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Nengjanggo.css'
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
 import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { BsSearch } from "react-icons/bs";
+import { IoReloadCircle } from "react-icons/io5";
 import IngredientBox from '../components/IngredientBox';
 import Card from '../components/Card';
 import Webcam from 'react-webcam';
@@ -109,6 +111,16 @@ function Nengjanggo() {
         }
     };
 
+    const reloadRecipe = async () => {
+        await axios.get("https://nengcipe-server.store/api/recipes/all", {
+            headers: {
+                Authorization: sessionStorage.getItem('jwt')
+            }
+        }).then(data => {
+            setRecipeList(data.data.result);
+        })
+    }
+
     const calDdate = (date) => {
         var currentDate = new Date();
         var year = currentDate.getFullYear();
@@ -164,62 +176,6 @@ function Nengjanggo() {
 
     return (
         <div className='Nengjanggo'>
-            <div className='page_name_container'>
-                <div className='page_name'>
-                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
-                </div>
-                <div className='menu_container' data-aos="fade-up" data-aos-delay="200">
-                    <div className='expiry_menu'>
-                        <div className="imminent_container">
-                            <input id="dropdown1" type="checkbox" />
-                            <label className="dropdownLabel1" for="dropdown1">
-                                <div>소비기한 임박</div>
-                                <FaAngleDown className="caretIcon" />
-                            </label>
-                            <div className="content">
-                                <ul>
-                                    {fridgeList && fridgeList.map((item, index) => {
-                                        if (calDdate(item.expiratioinDate) === 'orange') {
-                                            return <li key={index}>{item.ingredName}</li>;
-                                        } else {
-                                            return null;
-                                        }
-                                    })}
-                                </ul>
-                            </div>
-                        </div>
-                        <div className="expire_container">
-                            <input id="dropdown2" type="checkbox" />
-                            <label className="dropdownLabel2" for="dropdown2">
-                                <div>소비기한 만료</div>
-                                <FaAngleDown className="caretIcon" />
-                            </label>
-                            <div className="content">
-                                <ul>
-                                    {fridgeList && fridgeList.map((item, index) => {
-                                        if (calDdate(item.expiratioinDate) === 'red') {
-                                            return <li key={index}>{item.ingredName}</li>;
-                                        } else {
-                                            return null;
-                                        }
-                                    })}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className='fridge'>
-                <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
-                <div className='fridge_container'>
-                    <div className='fridge_box'>
-                        {fridgeList && fridgeList.map((item, index) => (
-                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
-                                color={"green"} />
-                        ))}
-                    </div>
-                </div>
-            </div>
             <div className='add_item'>
                 <button className='btn_addItem' onClick={() => setItemModal(true)}>재료 추가</button>
                 <button className='btn_addItem' onClick={() => setCamModal(true)}>영수증으로 재료 추가</button>
@@ -279,8 +235,68 @@ function Nengjanggo() {
                     </div>
                 </div>
             </div>
+            <div className='fridge'>
+                <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
+                <div className='fridge_container'>
+                    <div className='fridge_box'>
+                        {fridgeList && fridgeList.map((item, index) => (
+                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
+                                color={"green"} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className='page_name_container'>
+                {/* <div className='page_name'>
+                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
+                </div> */}
+                <div className='menu_container' data-aos="fade-up" data-aos-delay="200">
+                    <h3 className='nengjanggo_title'><AiOutlineExclamationCircle /> 소비기한 알림</h3>
+                    <div className='expiry_menu'>
+                        <div className="imminent_container">
+                            <input id="dropdown1" type="checkbox" />
+                            <label className="dropdownLabel1" for="dropdown1">
+                                <div>소비기한 임박</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
+                            <div className="content">
+                                <ul>
+                                    {fridgeList && fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'orange') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null;
+                                        }
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="expire_container">
+                            <input id="dropdown2" type="checkbox" />
+                            <label className="dropdownLabel2" for="dropdown2">
+                                <div>소비기한 만료</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
+                            <div className="content">
+                                <ul>
+                                    {fridgeList && fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'red') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null;
+                                        }
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
             <div className='search_recipe'>
-                <h3 className='nengjanggo_title'><BsSearch /> 내 재료로 할 수 있는 레시피 </h3>
+                <h3 className='nengjanggo_title'><BsSearch /> 내 재료로 할 수 있는 레시피 <IoReloadCircle onClick={reloadRecipe} className='btn_reload'/> </h3>
+                
                 {/* <div className='select_ingredients'>
                     재료 선택 :
                     <button className='btn_addfood' onClick={() => setIngredModal(true)}>+</button>
