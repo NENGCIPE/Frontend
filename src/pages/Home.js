@@ -52,7 +52,7 @@ function Home() {
                                 {/* <h1>Find<br />Recipe<br />In refrigerator</h1> */}
                                 <img className='findyourrecipe_logo' alt='이미지' src='../assets/findyourrecipe.png' data-aos="fade-right" data-aos-delay="200"/>
                                 <p className='nengcipe_info_context' data-aos="fade-right" data-aos-delay="200">냉시피로 여러분의 냉장고를 건강하게 관리해보세요</p>
-                                <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo_black.png' data-aos="fade-right" data-aos-delay="200"/>  
+                                {/* <img className='home_logo' alt='이미지' src='../assets/nengcipe_logo_black.png' data-aos="fade-right" data-aos-delay="200"/>   */}
                             </div>
 
                             <div className='nengcipe_info_btn' >

@@ -7,15 +7,15 @@
 }
 .container_guide{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: row; */
     justify-content: center;
     align-items: center;
 }
 .back{
-    /* margin-top: 100px; */
+    margin-left: 100px;
     width: 1500px;
     display: flex;
-    align-items: left;
+    align-items: center;
     justify-content: row;
 }
 .guide_logo{
@@ -59,9 +59,13 @@
     /* color: white; */
 }
 .guide_container{
-    height: 800px;
-    width: 800px;
-    margin-top: 20px;
+    /* margin-left: 50px; */
+    height: 1400px;
+    width: 1400px;
+    /* margin-top: 20px; */
+    display: flex;
+    align-items: center;
+    justify-content: row;
 }
 .user-guide {
     /* margin-left: 400px; */
@@ -72,12 +76,12 @@
   }
 .container{
     /* 장수에 맞게 너비 수정 한장당 너비 800px */
-    width: 2400px;
+    width: 4200px;
 
     transition: transform 0.5s;
 }
 .inner{
-    width: 800px;
+    width: 1400px;
     float: left;
     flex-grow: 1;
 }
@@ -91,26 +95,45 @@
   }
   
 .container.transformed2 {
-    transform: translate(-800px);
+    transform: translate(-1400px);
   }
   
 .container.transformed3 {
-    transform: translate(-1600px);
+    transform: translate(-2800px);
   }
 
   
 .btn_container{
+    width: 1400px;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0px;
 }
-.btn{
-    width: 130px;
-    height: 20px;
-    margin: 5px 5px;
-    border-radius: 5px;
-    background-color: white;
+.btn_N{
+    
+    background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+    z-index: 3;
+    position: absolute;
+    margin-left: 1250px;
+
+}
+.btn_P{
+    
+    background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+    z-index: 3;
+    position: absolute;
+    
+
 }
 .btn_HOME{
     width: 270px;

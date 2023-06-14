@@ -90,7 +90,7 @@ object-fit: cover;
     /* 여기 왼쪽 여백 */
     display: flex;
     justify-content: left;
-    margin-top: -100px;
+    margin-top: 270px;
     margin-left: 1400px;
 }
 
@@ -181,7 +181,7 @@ object-fit: cover;
 .home_section2 {
     width: 1400px;
     height: 800px;
-    margin-bottom: 70px;
+    /* margin-bottom: 70px; */
     margin-top: 70px;
     background-image: url('/public/assets/home_image1.jpg');
     background-repeat: no-repeat;
