@@ -456,8 +456,8 @@
 
 .recipe_list {
     display: grid;
-    grid-template-columns: repeat(3, 420px);
-    grid-template-rows: repeat(3, 420px);
+    grid-template-columns: repeat(3, 380px);
+    grid-template-rows: repeat(3, 380px);
     margin-bottom: 100px;
 }
 
