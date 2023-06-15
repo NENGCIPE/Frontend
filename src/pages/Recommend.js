@@ -26,7 +26,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = 'sk-';
+    const api_key = '';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -151,6 +151,7 @@ const Recommend = () => {
                             <img className='openai_image_2' alt='이미지' src='../assets/openai2.png' />
                             Chat-GPT Result
                         </div><br />
+                        <div className="result-textbox_q">{keywords}로 만들 수 있는 요리들을 추천해줘.</div>
                         <textarea className="result-textbox" value={responseText} readOnly />
                     </div>
                 )}
