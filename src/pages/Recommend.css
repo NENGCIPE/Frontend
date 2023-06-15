@@ -1,3 +1,4 @@
+
 @font-face {
     font-family: 'Noto Sans KR';
     font-weight: 400;
@@ -5,104 +6,144 @@
         url('/public/fonts/NotoSansKR-Regular.otf') format('woff'),
         url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
-.recommend_back{
+.back_img{
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+.search_logo{
+    width: 700px;
+    margin-left: 150px;
+    margin-bottom: -50px;
 }
 
-.recommend_img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1600px;
-    height: 400px;
-    
-    /* filter: blur(5px); */
+.video_background_rec {
+/* position: absolute;
+top: 0;
+left: 0; */
+width: 1400px;
+height: 100%;
+z-index: -1;
 }
+
+.background_video_rec {
+width: 1400px;
+height: 750px;
+object-fit: cover;
+}
+
 
 .GPT_container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: -350px;
+    /* margin-top: 50px; */
+}
+.gpt_loading{
+    margin-top: -40px;
+}
+.loading{
+    justify-content: center;
+    text-align: center;
+    margin-top: -70px;
+    margin-bottom: 100px;
 }
 .GPT_title {
-    background-color: rgba(255, 255, 255, 0.8);
-    width: 1600px;
-    padding: 50px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    width: 1500px;
+    /* height: 500px; */
+    padding: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: -50px;
-    margin-bottom: 0px;
-    border-radius: 10px;
+    margin-top: -450px;
+    margin-bottom: 250px;
+    /* border-radius: 10px; */
     border: 1px solid transparent; 
-    box-shadow: 0 0 10px 5px rgb(255, 255, 255); 
+    /* box-shadow: 0 0 10px 5px rgb(255, 255, 255);  */
     
 }
 
 .title_logo{
     display: flex;
-    margin-top: 30px;
+    margin-top: -100px;
     /* justify-content: center; */
     align-items: center;
     
 }
 .youtube_image{
     /* display: flex; */
-    width: 40px;
+    width: 35px;
     height: 'auto';
     margin-right: 10px;
 }
 .openai_image{
     /* display: flex; */
+    width: 25px;
+    height: 'auto';
+    margin-right: 0px;
+}
+.youtube_image_2{
+    /* display: flex; */
+    width: 35px;
+    height: 'auto';
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
+.openai_image_2{
+    /* display: flex; */
     width: 30px;
     height: 'auto';
     margin-right: 10px;
-
-
+    margin-bottom: -7px
 }
-.title{
+.title_recommend{
     /* font-size: 80px; */
     /* margin-top: -25px; */
     /* margin-bottom: 10px; */
-    font-size: 50px;
+    font-size: 80px;
+    color:aliceblue;
 
 }
 .sub_title{
     margin-top: 0px;
     font-size: 25px;
+    color: aliceblue;
     /* margin-bottom: -15px; */
 }
 .input_container{
-    width: 1600px;
+    /* width: 1600px; */
     /* padding: 50px; */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    background-color: white;
+    width: 500px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: white;
+    box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .input{
     width: 500px;
-    height: 40px;
+    height: 20px;
     font-size: 20px;
-    /* margin-top: 50px; */
+    background-color: white;
+    border: none;
+    background-color: none;
+    margin-left: 50px;
 }
 .button_G{
     margin-left: 10px;
-    font-size: 20px;
-    width: 170px;
-    height: 50px;
-    color: rgb(255, 255, 255);
-    font-family: 'Noto Sans KR';
-    font-weight: 600;
-    /* border: 1px solid black; */
-    border-radius: 10px;
-    background-color: rgb(0, 0, 0);
+
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -111,15 +152,8 @@
 }
 .button_Y{
     margin-left: 10px;
-    font-size: 20px;
-    width: 170px;
-    height: 50px;
-    color: rgb(255, 255, 255);
-    font-family: 'Noto Sans KR';
-    font-weight: 600;
-    /* border: 1px solid black; */
-    border-radius: 10px;
-    background-color: rgb(0, 0, 0);
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -137,14 +171,15 @@
 }
 .result-textbox {
     margin-top: 0px;
+    padding: 30px;
     margin-bottom: 50px;
-    width: 1000px;
-    height: 500px;
+    width: 960px;
+    height: 400px;
     resize: none;
     border: none;
     background: rgba(236, 236, 236, 0.535);
     font-family: Arial, sans-serif;
-    font-size: 25px;
+    font-size: 20px;
     /* color: #333; */
     overflow: auto;
 }
@@ -155,6 +190,7 @@
     /* align-items: center; */
     flex-direction: column;
     margin-left: 0px;
+    padding: 30px;
 }
 
 .Y_contents{

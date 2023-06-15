@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Nengjanggo.css'
+import { AiOutlineExclamationCircle } from "react-icons/ai";
 import { FaAngleDown } from "react-icons/fa";
-import { BsWind } from "react-icons/bs";
-import { GiIceCube } from "react-icons/gi";
+import { CgSmartHomeRefrigerator } from "react-icons/cg";
 import { BsSearch } from "react-icons/bs";
+import { IoReloadCircle } from "react-icons/io5";
 import IngredientBox from '../components/IngredientBox';
 import Card from '../components/Card';
 import Webcam from 'react-webcam';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import ItemList from '../components/ItemList';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 // import CartList from '../components/CartList';
 
 function Nengjanggo() {
@@ -32,7 +35,6 @@ function Nengjanggo() {
     const navigate = useNavigate();
     const [camModal, setCamModal] = useState(false);
     const [itemModal, setItemModal] = useState(false);
-
     const [image, setImage] = useState("");
     const webcamRef = useRef(null);
     const capture = () => {
@@ -90,20 +92,67 @@ function Nengjanggo() {
     };
 
     const addIngred = () => {
-        itemlist.forEach((item) => {
-            axios.post("https://nengcipe-server.store/api/users/fridge", item, {
-                headers: {
-                    Authorization: sessionStorage.getItem('jwt')
-                }
-            })
-        });
-        alert("냉장고에 재료추가가 완료되었습니다.");
-        setItemModal(false);
-        setCamModal(false);
-        setItemList([]);
+        if (itemlist.length === 0) {
+            alert("재료를 추가해주세요");
+        }
+        else {
+            itemlist.forEach((item) => {
+                axios.post("https://nengcipe-server.store/api/users/fridge", item, {
+                    headers: {
+                        Authorization: sessionStorage.getItem('jwt')
+                    }
+                })
+            });
+            alert("냉장고에 재료추가가 완료되었습니다.");
+            setItemModal(false);
+            setCamModal(false);
+            setItemList([]);
+            window.location.reload();
+        }
     };
 
+    const reloadRecipe = async () => {
+        await axios.get("https://nengcipe-server.store/api/recipes/all", {
+            headers: {
+                Authorization: sessionStorage.getItem('jwt')
+            }
+        }).then(data => {
+            setRecipeList(data.data.result);
+        })
+    }
+
+    const calDdate = (date) => {
+        var currentDate = new Date();
+        var year = currentDate.getFullYear();
+        var month = currentDate.getMonth() + 1;
+        var day = currentDate.getDate();
+        var Exyear = parseInt(date.substring(0, 4));
+        var Exmonth = parseInt(date.substring(5, 7));
+        var Exday = parseInt(date.substring(8, 10));
+
+        var stDate = new Date(year, month, day);
+        var endDate = new Date(Exyear, Exmonth, Exday);
+        const btMs = endDate.getTime() - stDate.getTime();
+        var btDay = btMs / (1000 * 60 * 60 * 24);
+
+        if (btDay < 2) {
+            return 'red';
+        }
+        else if (btDay < 4) {
+            return 'orange';
+        }
+        else {
+            return 'green';
+        }
+    }
+
     useEffect(() => {
+        AOS.init({
+            duration: 1200
+        });
+
+        window.scrollTo(0, 0);
+
         const getIngred = async () => {
             const { data } = await axios.get("https://nengcipe-server.store/api/users/fridge", {
                 headers: {
@@ -120,7 +169,6 @@ function Nengjanggo() {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             })
-            console.log(data.result);
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
@@ -128,75 +176,23 @@ function Nengjanggo() {
 
     return (
         <div className='Nengjanggo'>
-            <div className='page_name'>
-                <h1>NENG_JANGGO</h1>
-            </div>
-            <div className='expiry_menu'>
-                <div className="imminent_container">
-                    <input id="dropdown1" type="checkbox" />
-                    <label className="dropdownLabel1" for="dropdown1">
-                        <div>소비기한 임박 (3)</div>
-                        <FaAngleDown className="caretIcon" />
-                    </label>
-                    <div className="content">
-                        <ul>
-                            <li>우유 500ml (D-1) / 냉장실</li>
-                            <li>소고기 300g (D-1) / 냉장실</li>
-                            <li>계란 3알 (D-2) / 냉장실</li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="expire_container">
-                    <input id="dropdown2" type="checkbox" />
-                    <label className="dropdownLabel2" for="dropdown2">
-                        <div>소비기한 만료 (2)</div>
-                        <FaAngleDown className="caretIcon" />
-                    </label>
-                    <div className="content">
-                        <ul>
-                            <li>요플레 / 냉장실</li>
-                            <li>닭가슴살 / 냉동실</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div className='fridge'>
-                <h3><BsWind /> 냉장실</h3>
-                <div className='fridge_container'>
-                    <div className='fridge_box'>
-                        {fridgeList.map((item, index) => (
-                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={"-7"} color={"green"} />
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className='freezer'>
-                <h3><GiIceCube /> 냉동실</h3>
-                <div className='freezer_container'>
-                    <div className='fridge_box'>
-                        <IngredientBox icon={`../assets/icon_meat.png`} name={"닭가슴살"} amount={"2개"} date={"+7"} color={"red"} />
-                        <IngredientBox icon={`../assets/icon_frozen.png`} name={"만두"} amount={"8개"} date={"-3"} color={"orange"} />
-                        <IngredientBox icon={`../assets/icon_frozen.png`} name={"소떡소떡"} amount={"2개"} date={"-5"} color={"green"} />
-                        <IngredientBox icon={`../assets/icon_frozen.png`} name={"김치볶음밥"} amount={"2봉지"} date={"-7"} color={"green"} />
-                        <IngredientBox icon={`../assets/icon_diary.png`} name={"아이스크림"} amount={"3개"} date={"-100"} color={"green"} />
-                    </div>
-                </div>
-            </div>
             <div className='add_item'>
-                <button className='btn_addItem' onClick={() => setCamModal(true)}>재료 추가</button>
+                <button className='btn_addItem' onClick={() => setItemModal(true)}>재료 추가</button>
+                <button className='btn_addItem' onClick={() => setCamModal(true)}>영수증으로 재료 추가</button>
                 <div className={camModal ? 'modal' : 'modal_hidden'}>
                     <div className='modal_overlay'></div>
                     <div className='modal_content'>
-                        <h1 className='webcam_info'>영수증이 화면에 잘 보이게</h1>
-                        <h1 className='webcam_info'>촬영해주세요</h1>
-                        {image === '' ? <Webcam
-                            audio={false}
-                            width={600}
-                            height={600}
-                            ref={webcamRef}
-                            screenshotFormat='image/jpeg'
-                            imageSmoothing={true} /> : <img className='img_preview' src={image} alt='screenshot' />}
+                        <div className='cam_container'>
+                            {image === '' ? <Webcam
+                                audio={false}
+                                width={600}
+                                height={600}
+                                ref={webcamRef}
+                                screenshotFormat='image/jpeg'
+                                imageSmoothing={true} /> : <img className='img_preview' src={image} alt='screenshot' />}
+                        </div>
                         <div>
+                            <h1 className='webcam_info'>영수증이 화면에 잘 보이게 <br />촬영해주세요</h1>
                             {image !== '' ?
                                 <button onClick={(e) => {
                                     e.preventDefault();
@@ -211,7 +207,7 @@ function Nengjanggo() {
                                     className="btn_capture">캡처하기</button>
                             }
                             <div className='section_btn'>
-                                <button className='btn_submit' onClick={submit}>추가</button>
+                                <button className='btn_submit' onClick={submit}>다음</button>
                                 <button className='btn_close' onClick={() => setCamModal(false)} >취소</button>
                             </div>
                         </div>
@@ -220,23 +216,87 @@ function Nengjanggo() {
                 <div className={itemModal ? 'modal' : 'modal_hidden'}>
                     <div className='modal_overlay'></div>
                     <div className='item_modal_content'>
-                        <h1 className='item_modal_title'>재료</h1>
-                        <button className='btn_additemlist' onClick={onCreate}>리스트 추가</button>
+                        <h1 className='item_modal_title'>재료 추가</h1>
+                        <button className='btn_additemlist' onClick={onCreate}>+</button>
+                        <p className='btn_additemlist_text' style={{ color: 'black', textAlign: 'center', fontSize: "15px" }}>목록추가</p>
+
                         <div className='item_modal_list'>
                             {itemlist.map((item, index) => (
                                 <ItemList key={item.ingredName} name={item.ingredName} count={item.quantity} onRemove={onRemove}
                                     onUpdateName={(value) => onUpdateItem(index, 'ingredName', value)}
                                     onUpdateCount={(value) => onUpdateItem(index, 'quantity', value)}
-                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)} />
+                                    onUpdateCategory={(value) => onUpdateItem(index, 'categoryName', value)}
+                                    onUpdateDate={(value) => onUpdateItem(index, 'expirationDate', value)}
+                                />
                             ))}
                         </div>
-                        <button className='btn_addItemtoFridge' onClick={addIngred}>냉장고에 추가</button>
-                        <button className='btn_close' onClick={closeItemModal}>닫기</button>
+                        <button className='btn_addItemtoFridge' onClick={addIngred}>추가</button>
+                        <button className='btn_addItemclose' onClick={closeItemModal}>취소</button>
                     </div>
                 </div>
             </div>
+            <div className='fridge'>
+                <h3 className='nengjanggo_title'><CgSmartHomeRefrigerator /> 냉장고</h3>
+                <div className='fridge_container'>
+                    <div className='fridge_box'>
+                        {fridgeList && fridgeList.map((item, index) => (
+                            <IngredientBox icon={item.category.categoryName} id={item.id} name={item.ingredName} amount={item.quantity} date={item.expiratioinDate}
+                                color={"green"} />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className='page_name_container'>
+                {/* <div className='page_name'>
+                    <img className='nengjanggo_logo' alt='이미지' src='../assets/nengcipe_logo_white.png' />
+                </div> */}
+                <div className='menu_container' data-aos="fade-up" data-aos-delay="200">
+                    <h3 className='nengjanggo_title'><AiOutlineExclamationCircle /> 소비기한 알림</h3>
+                    <div className='expiry_menu'>
+                        <div className="imminent_container">
+                            <input id="dropdown1" type="checkbox" />
+                            <label className="dropdownLabel1" for="dropdown1">
+                                <div>소비기한 임박</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
+                            <div className="content">
+                                <ul>
+                                    {fridgeList && fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'orange') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null;
+                                        }
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                        <div className="expire_container">
+                            <input id="dropdown2" type="checkbox" />
+                            <label className="dropdownLabel2" for="dropdown2">
+                                <div>소비기한 만료</div>
+                                <FaAngleDown className="caretIcon" />
+                            </label>
+                            <div className="content">
+                                <ul>
+                                    {fridgeList && fridgeList.map((item, index) => {
+                                        if (calDdate(item.expiratioinDate) === 'red') {
+                                            return <li key={index}>{item.ingredName}</li>;
+                                        } else {
+                                            return null;
+                                        }
+                                    })}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
             <div className='search_recipe'>
-                <h3><BsSearch /> 내 재료로 할 수 있는 레시피 </h3>
+                <h3 className='nengjanggo_title'><BsSearch /> 내 재료로 할 수 있는 레시피 <IoReloadCircle onClick={reloadRecipe} className='btn_reload'/> </h3>
+                
                 {/* <div className='select_ingredients'>
                     재료 선택 :
                     <button className='btn_addfood' onClick={() => setIngredModal(true)}>+</button>
@@ -266,15 +326,9 @@ function Nengjanggo() {
                     </div>
                 </div> */}
                 <div className='recipe_list'>
-                    {recipeList.map((item, index) => (
-                        <div className='recipelist_container' onClick={() => navigate("/recipe")}>
-                            <Card img={item.imgUrl} title={item.recipeName} scrap={"13"} />
-                            <div className='recipe_descript'>
-                                <div className='recipe_title'>재료</div>
-                                <div className='recipe_ingredients'>
-                                    {item.recipeIngredName}
-                                </div>
-                            </div>
+                    {recipeList && recipeList.map((item, index) => (
+                        <div className='recipelist_container' onClick={() => navigate(`/recipe/${item.recipeId}`)}>
+                            <Card img={item.imgUrl} title={item.recipeName} />
                         </div>
                     ))}
                 </div>

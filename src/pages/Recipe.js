@@ -1,50 +1,94 @@
 import React, { useState, useEffect } from 'react';
 // import React, { useState} from 'react';
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+// import React from 'react';
+//import { useParams } from 'react-router-dom';
 import './Recipe.css';
 import axios from 'axios';
 
 function Recipe() {
 
+
+
+    const { recipeID } = useParams();
+
     const [isAccordionOpen, setIsAccordionOpen] = useState(false);
     const [isHeartFull, setIsHeartFull] = useState(false);
+    //const [is_scraped, setscraped] = useState(false);
     const [showMessage, setShowMessage] = useState(false);
     const [recipe, setRecipe] = useState('[]');
+    // const [scrapList, setScrapList] = useState([]);
 
-    const recipeID = 1;
+    // useEffect(() => {
+    // const getScrap = async () => {
+    //     try {
+    //     const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
+    //         headers: {
+    //         Authorization: sessionStorage.getItem('jwt')
+    //         }
+    //     });
+    //         const matchingRecipe = (data) => {
+    //             const recipeMine = data.find(item => item.recipe.id === recipeID)
+    //             console.log("console.log",{recipeMine})
+    //             return recipeMine
+    //         }
+    //         if (matchingRecipe) {
+    //             console.log("Matching recipe found!");
+    //             setIsHeartFull(true);
+    //             // console.log(matchingRecipe);
+    //         } else {
+    //             console.log("No matching recipe found.");
+    //         }
+    //     return data.result;
+    //     } catch (error) {
+    //     console.error("Error fetching scrap list:", error);
+    //     return [];
+    //     }
+    // };
+
+    // getScrap();//.then(result => setScrapList(result));
+    // }, [recipeID]);
+
+    
+
+
+
+    // findMine(scrapList)
+    
+    //console.log(findMine(scrapList))
+    // console.log(scrapList.recipe.id)
+
+
+
     useEffect(() => {
-        const response_local = {
-            "code": 200,
-            "message": "레시피 상세 정보 로드 성공.",
-            "result": {
-                "recipeName": "가지볶음 밑반찬 가지나물 가지 반찬 봄나물 가지반찬",
-                "recipeDetail": "가지는 한입크기로 썰어주어요. 말린 목이버섯 한개를 물에 불렸더니 엄청 커져서 한줌되요. 목이버섯은 가지보다 작게 썰어주어요.\n목이버섯한줌과 가지 2개를 식용유 1.5큰술넣고 볶다가 다진마늘 한큰술, 진간장 4큰술, 꿀 1큰술 넣고 볶아요.\n가지가 익으면 가스불을끄고 들기름과 깨를 한큰술씩 넣고 섞어주어요.\n",
-                "recipeIngredName": "가지,다진마늘,식용유,목이버섯,진간장,꿀,들기름,깨",
-                "recipeIngredAmount": "2개,1큰술,1.5큰술,1줌,4큰술,1큰술,1큰술,1큰술",
-                "imgUrl": "https://recipe1.ezmember.co.kr/cache/recipe/2023/03/15/e1c5cb344e24d7c24f69b010a3f8f29a1.jpg"
+        const getRecipe = async () => {
+            const { data } = await axios.get(`https://nengcipe-server.store/api/recipes/${recipeID}`, {
+                headers: {
+                    Authorization: sessionStorage.getItem('jwt')
+                }
+            });
+            return data.result;
+        }
+        getRecipe().then(result => setRecipe(result));
+
+        const chkScrap = async () => {
+            const { data } = await axios.get("https://nengcipe-server.store/api/recipes/scrapList", {
+                headers: {
+                Authorization: sessionStorage.getItem('jwt')
+                }
+            });
+            const chkList = data.result;
+            const recipeMine = chkList.find(item => (item.recipe.id === parseInt(recipeID)))
+            if (recipeMine !== undefined) {
+                return true;
+            }
+            else {
+                return false;
             }
         }
+        chkScrap().then(result => setIsHeartFull(result));
+    }, [recipeID]);
 
-        const getRecipe = async () => {
-            try {
-                //const response = await axios.get(`https://nengcipe-server.store/api/recipes/${recipeID}`);
-                //const result = response.result;
-                const result = response_local.result;
-                setRecipe(result);
-
-            } catch (error) {
-                console.error(error);
-            }
-
-        };
-
-        getRecipe();
-    }, []);
-
-
-    //const [heartCount, setHeartCount] = useState(0);
-    
-    //const [IsScrapped, setIsScrapped] = useState(false);
 
     const toggleAccordion = () => {//공유하기 복사기능
         setIsAccordionOpen(!isAccordionOpen);
@@ -59,10 +103,57 @@ function Recipe() {
                 setTimeout(() => {
                     setShowMessage(false);
                 }, 2000);
+                alert("클립보드에 복사되었습니다.");
             })
             .catch((error) => {
                 console.error("텍스트 복사 중 오류가 발생했습니다.", error);
             });
+
+    };
+    const handleScrap = async () => {
+        const request = {
+            recipeId: recipeID
+        }
+        await axios.post("https://nengcipe-server.store/api/recipes/scrap", request, {
+            headers: {
+                Authorization: sessionStorage.getItem('jwt')
+            }
+        }).then(
+            console.log("scrap!!"),
+            alert("스크랩 되었습니다.")
+        )
+            .catch(error => {
+                if (error.response.status === 409) {
+                    alert("이미 스크랩된 레시피입니다.");
+
+                    //setscraped(true);
+                    //setIsHeartFull(true);
+                    console.log("이미 스크랩된 레시피")
+                }
+            })
+
+
+    };
+    const delete_handleScrap = async () => {
+        const request = {
+            data: {
+                recipeId: recipeID
+            },
+            headers: {
+                Authorization: sessionStorage.getItem('jwt')
+            }
+        };
+
+        try {
+            await axios.delete("https://nengcipe-server.store/api/recipes/scrapOut", request);
+            console.log("Scrap OUT!!");
+            alert("스크랩이 취소되었습니다.");
+        } catch (error) {
+            if (error.response && error.response.status === 500) {
+                alert("이미 삭제된 레시피입니다.");
+            }
+        }
+
 
     };
 
@@ -70,19 +161,11 @@ function Recipe() {
         setIsHeartFull(!isHeartFull);
         //setHeartCount(isHeartFull ? heartCount - 1 : heartCount + 1);
         if (isHeartFull === false) {
-                const handleScrap = async () => {
-            
-                const requestBody = {
-                    recipeId: "1"
-                };
-                
-                const response = await axios.post('https://nengcipe-server.store/api/recipes/scrap', requestBody);
-                console.log(response.data);  
-                console.log("scrap!!")
-            
-        };
-        handleScrap();
-    }
+            handleScrap();
+        }
+        else {
+            delete_handleScrap();
+        }
     };
 
     const renderIngredients = () => {
@@ -91,10 +174,23 @@ function Recipe() {
             const amounts = recipe.recipeIngredAmount.split(',');
 
             const renderedIngredients = names.map((name, index) => (
-                <li key={index}>{name.trim()}: {amounts[index].trim()}</li>
+                <li className='ingredients_text' key={index}>{name.trim()}: {amounts[index].trim()}</li>
             ));
 
             return <ul>{renderedIngredients}</ul>;
+        }
+
+        return null;
+    };
+    const renderSentences = () => {
+        if (recipe && recipe.recipeDetail) {
+            const detail = recipe.recipeDetail.split('.');
+
+            const renderSentences = detail.map((name, index) => (
+                <li className='ingredients_text' key={index}>{name.trim()}</li>
+            ));
+
+            return <ul>{renderSentences}</ul>;
         }
 
         return null;
@@ -103,67 +199,62 @@ function Recipe() {
 
 
 
+
     return (
-        <div className='Recipe'>
-            <div className='title'>
-                <div className='page_name'>
-                    <h1>Recipe</h1>
-                </div>
+    <div className='Recipe_container'>
+        <div className='info_top'>
+            <div className='Recipe_title'>
                 <div className='dish_name'>
                     <h1>{recipe.recipeName}</h1>
-
                 </div>
             </div>
+            <div className='recipe_line'></div>
+                <div className='Recipe'>
+                {/* <div className='dish_name'>
+                    <h1>{recipe.recipeName}</h1>
+                </div> */}
+                    <div className='info_left'>
+                        <div className='ingredients'>
+                            <h1>재료</h1>
+                            <p1>{renderIngredients()}</p1><br />
+                        </div>
+                    </div>
+                    <div className='info_right'>
+                        <div className="image-container"><div >
+                        <img className='food_img' src={recipe.imgUrl} alt="음식 이미지" />
+                    </div>
 
-            <div className="image-container">
-                <div >
-                    <img className='food_img' src={recipe.imgUrl} alt="음식 이미지" />
+                    <div className="dish_detail">
+                        <div className='button_container'>
+                            <div>
+                                <button className='share_btn' onClick={toggleAccordion}>
+                                    <img src={`${process.env.PUBLIC_URL}/share.png`} alt="공유" style={{ width: '30px', height: '30px' }} />
+                                </button>
+                                {isAccordionOpen && (
+                                    <div>
+                                        {showMessage && (
+                                            <div className="accordion-content">
+                                                {/* 복사 완료 */}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </div>
+
+                            <button className='heart_btn' onClick={toggleHeart}>
+                                <img src={`${process.env.PUBLIC_URL}/${isHeartFull ? 'heart_full' : 'heart_empty'}.png`} alt="하트" style={{ width: '30px', height: '30px' }} />
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="dish_detail">
-                    <div className='button_container'>
-
-
-                        <div>
-                            <button className='share_btn' onClick={toggleAccordion}>
-                                <img src={`${process.env.PUBLIC_URL}/share.png`} alt="공유" style={{ width: '50px', height: '50px' }} />
-                            </button>
-                            {isAccordionOpen && (
-                                <div>
-                                    {showMessage && (
-                                        <div className="accordion-content">
-                                            복사 완료
-                                        </div>
-                                    )}
-                                </div>
-                            )}
-
-                        </div>
-
-                        <button className='heart_btn' onClick={toggleHeart}>
-                            <img src={`${process.env.PUBLIC_URL}/${isHeartFull ? 'heart_full' : 'heart_empty'}.png`} alt="하트" style={{ width: '50px', height: '50px' }} />
-                            {/* <span className="heart-count">{heartCount}</span> */}
-                        </button>
-                    </div>
-
-                    <div className='recipe_name'>
-                        <h1>{recipe.recipeName}</h1><br />
-                    </div>
-                    <div className='ingredients'>
-                        <h1>재료</h1>
-                        {/* {recipe.recipeIngredName}{recipe.recipeIngredAmount}<br /> */}
-                        <div>{renderIngredients()}</div><br />
-                    </div>
-
-                    <div className='recipe-description'>
-                        <h1 >레시피 설명</h1>
-                        <p>
-                            {recipe.recipeDetail}
-                        </p>
-                    </div>
-
+                <div className='recipe-description'>
+                    <h1 >레시피 설명</h1>
+                    <p1>{renderSentences()}</p1>
                 </div>
             </div>
         </div >
+        </div>
+        </div>
     );
 } export default Recipe;

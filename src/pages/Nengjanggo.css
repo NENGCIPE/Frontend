@@ -3,10 +3,46 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-image: url('/public/assets/nengjanggo_back.jpg'); */
+    /* width: 1500px; */
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+.nengjanggo_logo{
+    width: 500px;
+    margin-bottom: 100px;
 
+    margin-top: -100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    padding-left: 40px;
+    margin-left: -50px;
+    box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.3);
+}
+.add_item {
+    margin-top: 50px;
+}
+.page_name_container{
+    width: 1400px;
+    height: 200px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-top: 50px; */
+}
 .page_name {
+    margin-top: 100px;
     font-size: 40px;
+    color: white;
+}
+.menu_container{
+    display: flex;
+    /* height: 100px; */
+    flex-direction: row;
+    justify-content: center;
+    margin-top: -100px; 
+    /* 마진 -값으로 해결 */
 }
 
 .expiry_menu {
@@ -18,7 +54,8 @@
     width: 300px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     position: relative;
-    margin-right: 100px;
+    margin-right: 10px;
+    background-color: white;
 }
 
 #dropdown1 {
@@ -67,6 +104,7 @@
     width: 300px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
     position: relative;
+    background-color: white;
 }
 
 #dropdown2 {
@@ -94,8 +132,9 @@
 }
 
 .fridge_container {
-    width: 1000px;
-    height: 400px;
+    width: 1200px;
+    height: 800px;
+    max-height: 800px;
     margin-bottom: 30px;
     border-radius: 10px;
     border: 3px solid black;
@@ -103,43 +142,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    background-image: url('/public/assets/nengjanggo_inside.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
+/* 출처 <a href="https://kr.freepik.com/free-vector/close-up-an-inside-the-refrigerator_24781258.htm#from_view=detail_alsolike">작가 brgfx</a> 출처 Freepik */
 .fridge_box {
-    width: 950px;
-    height: 350px;
+    width: 1100px;
+    height: 700px;
     display: grid;
-    grid-template-columns: repeat(7, 140px);
-    grid-template-rows: repeat(2, 200px);
+    grid-template-columns: repeat(8, 140px);
+    grid-template-rows: repeat(3, 200px);
 }
-
-.freezer_container {
-    width: 1000px;
-    height: 400px;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    border: 3px solid black;
-    font-size: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 
 .btn_addItem {
-    width: 200px;
+    width: 300px;
     height: 50px;
-    margin-bottom: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: white;
     background-color: black;
     border-radius: 5px;
     border: 1px solid black;
-    color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .modal {
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -162,16 +195,19 @@
 
 .modal_content {
     background-color: white;
-    padding: 100px 500px;
+    width: 1200px;
+    height: 900px;
     text-align: center;
     position: relative;
     border-radius: 10px;
-    width: 10%;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.item_modal_title {
+    font-family: 'Noto Sans KR';
 }
 
 .item_modal_content {
@@ -181,47 +217,80 @@
     position: relative;
     border-radius: 10px;
     width: 500px;
-    max-height: 700px;
+    max-height: 800px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Noto Sans KR';
 }
 
 .item_modal_list {
+    width: 880px;
     max-height: 500px;
     overflow: auto;
 }
 
 .btn_additemlist {
-    width: 140px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 10px;
-    margin-left: 1080px;
+    margin-left: 1000px;
     background-color: black;
-    border-radius: 5px;
+    border-radius: 100%;
     border: 1px solid black;
     color: white;
     font-size: 20px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
+}
+.btn_additemlist_text {
+    width: 80px;
+    height: 40px;
+    margin-top: -5px;
+    margin-bottom: -80px;
+    margin-left: 1000px;
+    /* background-color: black; */
+    /* border-radius: 100%; */
+    /* border: 1px solid black; */
+    color: black;
+    font-size: 20px;
+    /* cursor: pointer; */
+    font-family: 'Noto Sans KR';
 }
 
 .btn_addItemtoFridge {
-    width: 200px;
-    height: 50px;
-    margin-top: 20px;
-    margin-bottom: 10px;
+    width: 150px;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     background-color: black;
     border-radius: 5px;
     border: 1px solid black;
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
+}
+
+.btn_addItemclose {
+    width: 150px;
+    height: 40px;
+    margin-bottom: 30px;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid black;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .webcam_info {
     width: 500px;
+    margin-bottom: 200px;
+    font-family: 'Noto Sans KR';
 }
 
 .btn_capture {
@@ -235,6 +304,7 @@
     font-size: 25px;
     cursor: pointer;
     margin-bottom: 50px;
+    font-family: 'Noto Sans KR';
 }
 
 .section_btn {
@@ -244,7 +314,7 @@
 }
 
 .btn_submit {
-    width: 100px;
+    width: 140px;
     height: 50px;
     margin-right: 10px;
     margin-bottom: 30px;
@@ -254,10 +324,11 @@
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .btn_close {
-    width: 100px;
+    width: 140px;
     height: 50px;
     margin-left: 10px;
     margin-bottom: 30px;
@@ -267,6 +338,7 @@
     color: white;
     font-size: 25px;
     cursor: pointer;
+    font-family: 'Noto Sans KR';
 }
 
 .ingred_modal_content {
@@ -329,10 +401,6 @@
     align-items: center;
 }
 
-.img_preview {
-    margin: 75px;
-}
-
 .select_ingredients {
     width: 1000px;
     height: 40px;
@@ -371,21 +439,32 @@
     margin-top: 50px;
 }
 
-.recipe_list {
-    width: 1200px;
-    height: 1370px;
-    margin-bottom: 100px;
-    border-radius: 10px;
+.nengjanggo_title {
+    font-size: 25px;
+    font-family: 'Noto Sans KR';
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* color: white; */
+}
+
+.btn_reload {
     font-size: 30px;
-    max-height: 1400px;
-    overflow: auto;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.recipe_list {
+    display: grid;
+    grid-template-columns: repeat(3, 420px);
+    grid-template-rows: repeat(3, 420px);
+    margin-bottom: 100px;
 }
 
 .recipelist_container {
-    width: 1000px;
     height: 320px;
     display: flex;    
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .recipe_descript {
@@ -398,4 +477,7 @@
 .recipe_ingredients {
     margin-top: 10px;
     font-size: 20px;
+}
+.search_recipe{
+    margin-left: 35px;
 }

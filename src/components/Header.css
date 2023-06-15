@@ -7,29 +7,31 @@
 }
 
 .header {
-    height: 100px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .header_container {
-    width: 1565px;
+    width: 1520px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(255, 255, 255);
 }
 
 .header_logo_icon {
-    width: 200px;
-    height: 80px;
+    width: 'auto';
+    height: 75px;
+    /* margin-left: 50px; */
 }
 
 .header_menu {
     display: flex;
-    margin: 0px 150px;
-    font-size: 25px;
+    margin: 0px 190px;
+    font-size: 18px;
     font-family: 'Noto Sans KR';
 }
 
@@ -44,30 +46,31 @@
 }
 
 .header_option {
-    margin-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
 
 }
 
 .header_btn1 {
-    width: 120px;
-    height: 50px;
-    font-size: 20px;
+    width: 100px;
+    height: 45px;
+    font-size: 17px;
     font-weight: 600;
     background-color: white;
     border: 2px solid #f2f3f6;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     font-family: 'Noto Sans KR';
 }
 
 .header_btn2 {
-    width: 120px;
-    height: 50px;
-    font-size: 20px;
-    color: white;
-    background-color: black;
-    border: 2px solid #f2f3f6;
-    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 15px;
+    color: rgb(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     cursor: pointer;
     font-family: 'Noto Sans KR';
 }

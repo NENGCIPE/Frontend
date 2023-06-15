@@ -45,7 +45,7 @@ function SignUp() {
                     <h1 className='txt_signup'>회원가입</h1>
                     <form className='signup_form'>
                         <div>
-                            <input className='signup_input' value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='이메일' />
+                            <input className='signup_input' value={email} onChange={(e) => setEmail(e.target.value)} type='email' placeholder='아이디' />
                         </div>
                         <div>
                             <input className='signup_input' value={password} onChange={(e) => setPassword(e.target.value)} type='password' placeholder='비밀번호' />
