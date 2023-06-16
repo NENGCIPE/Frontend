@@ -36,7 +36,7 @@ function Header() {
         <div className='header'>
             <div className='header_container'>
                 <div className='header_logo'>
-                    <div><a href='/'><img className='header_logo_icon' alt='logo' src='../assets/nengcipe_logo_white.png' /></a></div>
+                    <div><a href='/'><img className='header_logo_icon' alt='logo' src='../assets/nengcipe_logo.png' /></a></div>
                 </div>
                 <div className='header_menu'>
                     <div><a href='/'>HOME</a></div>
