@@ -1,0 +1,214 @@
+.Recipe_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Recipe {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 255, 255, 0.9);
+    padding-left: 50px;
+    font-family: Arial, sans-serif;
+  }
+  .info_top{
+    width: 1510px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('/public/assets/userguide_back.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+
+
+  }
+  .info_left{
+    width: 250px;
+    margin-right: -50px;
+    /* margin-right: 20px; */
+    /* align-items: top; */
+  }
+  .Recipe_title,
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .Recipe_page_name {
+    font-size: 40px;
+    margin-bottom: 0px;
+    width: 1500px;
+  }
+  
+  .dish_name {
+    font-size: 25px;
+    /* height: 20px; */
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 50px;
+    padding: 0px 50px;
+    box-shadow: 0px 0px 20px 20px rgba(0, 0, 0, 0.15);
+  }
+  .recipe_line
+  {
+    width: 1200px;
+    height: 3px;
+    background-color: black;
+    /* fill: black; */
+  }
+  .image-container {
+    /* background-color: #e8e6e6; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 'auto'; /* image 높이 지정 */
+  }
+  
+  .food_img {
+    /* margin-top: 10px; */
+    padding: 50px;
+    width: 750px;
+    height: 750px;
+    margin-left: -50px;
+    object-fit: cover;
+    /* border-radius: 10px; */
+    /* justify-content: center; */
+    justify-content: center;
+    
+
+  }
+  
+  .dish_detail {
+    margin-top: 0px;
+    /* padding: 10px; */
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    margin-bottom: 10px;
+    
+  }
+  
+  .dish_detail h2 {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+  }
+  
+  .dish_detail p {
+    font-size: 15px;
+    /* margin: 0 0 10px 0; */
+  }
+  
+
+  .button_container{
+    display: flex;
+    flex-direction: center;
+    align-items: top;
+    margin-left: 600px;
+    margin-top: -105px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.219);
+  }
+  .recipe_name{
+    margin-top: 0px;
+    width: 0px;
+    background-color: white;
+  }
+  .ingred_text{
+    display: flex;
+  }
+  .ingred_name{
+    width: 70px;
+  }
+
+  .share_btn{
+    width: 50px;
+    height: 50px;
+    /* margin-left: 400px; */
+    display: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 0, 0, 0);
+    border: 1px solid rgba(255, 0, 0, 0);
+    
+  }
+  .heart_btn{
+    margin-left: 0px;
+    width: 50px;
+    height: 50px;
+    display: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(129, 129, 129, 0);
+    border: 1px solid rgba(255, 0, 0, 0);
+  }
+
+  .accordion-content{
+    flex-direction: column;
+    display: fixed;
+    justify-content: center;
+    align-items: center;
+    width: 'auto';
+    /* background-color: rgba(129, 129, 129, 0); */
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+
+  .accordion img {
+    transform: scale(0.07);
+  }
+
+  
+  .heart-count {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: white;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+  .ingredients{
+    font-size: 20px;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 5px 0 #00000026;
+  }
+  .recipe_name{
+    font-size: 20px;
+  }
+.info_right{
+  margin-left: 100px;
+}
+
+  .ingredients_text{
+    font-size: 20px;
+  }
+  .recipe-description{
+    width: 710px;
+    font-size: 20px;
+    /* padding-bottom: 100px;  */
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 100px;
+    box-shadow: 0 4px 5px 0 #00000026;
+  }
