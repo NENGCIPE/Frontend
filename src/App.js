@@ -9,14 +9,14 @@ import MyPage from "./pages/MyPage";
 import EditMyInfo from "./pages/EditMyInfo";
 import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
-import HeaderWhite from "./components/Header_white";
+// import HeaderWhite from "./components/Header_white";
 import KakaoRedirect from "./pages/KakaoRedirect";
 import UserGuide from "./pages/UserGuide";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<div><HeaderWhite/><Home/></div>}/>
+      <Route path="/" element={<div><Header/><Home/></div>}/>
       <Route path="/login" element={<div><LogIn/></div>}/>
       <Route path="/signup" element={<div><SignUp/></div>}/>
       <Route path="/nengjanggo" element={<div><Header/><Nengjanggo/></div>}/>
