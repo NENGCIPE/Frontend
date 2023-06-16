@@ -1,25 +1,23 @@
 
- /* .background_NENG {
-    width: 1400px;
-    height: 4px;
-    background-color: rgb(0, 0, 0);
+ .background_NENG {
+    width: 1520px;
+    height: 400px;
+    background-color: black;
     object-fit: cover;
     margin-top: -75px;
     position: relative;
     z-index: -1;
-    color: rgb(0, 0, 0);
+    color: white;
     
     text-align: center;
 }
 .NENG_titile{
     font-size: 80px;
-    margin-top: 75px;
+    margin-top: 150px;
     font-family: 'Noto Sans KR';
     font-weight: 600;
-} */
-.Nengjanggo{
-    margin-top: 70px;
 }
+
 
 
 .w-btn {
@@ -558,10 +556,9 @@
 
 .recipe_list {
     display: grid;
-    grid-template-columns: repeat(4, 340px);
-    grid-template-rows: repeat(3, 340px);
+    grid-template-columns: repeat(3, 390px);
+    grid-template-rows: repeat(3, 390px);
     margin-bottom: 100px;
-    /* max-height: 300px; */
 }
 
 .recipelist_container {

@@ -1,5 +1,4 @@
 .Scrap {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,10 +57,10 @@
 
 .scrap_list {
   display: grid;
-  max-height: 300px;
+  max-height: 500px;
   margin-left: 25px;
-  grid-template-columns: repeat(4, 340px);
-  grid-template-rows: repeat(4, 340px);
+  grid-template-columns: repeat(4, 355px);
+  grid-template-rows: repeat(4, 355px);
   margin-bottom: 100px;
   padding: 0px;
   /* background-color: rgba(155,155,155,0.2); */
