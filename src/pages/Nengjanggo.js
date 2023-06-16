@@ -148,7 +148,7 @@ function Nengjanggo() {
 
     useEffect(() => {
         AOS.init({
-            duration: 1200
+            duration: 500
         });
 
         window.scrollTo(0, 0);
@@ -176,15 +176,17 @@ function Nengjanggo() {
 
     return (
         <div className='Nengjanggo'>
-            <div className='background_NENG'>
-                <h1 className='NENG_titile' data-aos="fade-up">NENGCIPE</h1>
-            </div>
+            <h1 className='NENG_title'>NENGCIPE</h1>
+            <div className='add_item' data-aos="fade-in">
+                
+                <button class="w-btn w-btn-color" type="button"onClick={() => setCamModal(true)}>영수증으로 재료 추가
+                </button>
+                <button class="w-btn-outline w-btn-color-outline" type="button"onClick={() => setItemModal(true)}>텍스트로 재료 추가
+                </button>
+                </div>
             <div className='add_item'>
-            <button class="w-btn w-btn-color" type="button"onClick={() => setItemModal(true)}>재료 추가
-            </button>
-            
-            <button class="w-btn-outline w-btn-color-outline" type="button"onClick={() => setCamModal(true)}>영수증으로 재료 추가
-            </button>
+                
+                <div className='background_SCRAP'></div>
 
 
                 {/* <button className='btn_addItem' onClick={() => setItemModal(true)}>재료 추가</button>
@@ -305,7 +307,7 @@ function Nengjanggo() {
                 </div>
             </div>
 
-            
+            <div className='background_SCRAP'></div>
             <div className='search_recipe'>
                 <h3 className='nengjanggo_title'><BsSearch /> 내 재료로 할 수 있는 레시피 <IoReloadCircle onClick={reloadRecipe} className='btn_reload'/> </h3>
                 

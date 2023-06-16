@@ -15,6 +15,7 @@
 }
 
 .home {
+    margin-top: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -105,7 +106,7 @@ object-fit: cover;
     display: flex;
     justify-content: left;
     margin-top: 150px;
-    margin-left: 1600px;
+    margin-left: 20px;
 }
 /* 
 .btn_nengcipe_1 {
@@ -136,13 +137,13 @@ object-fit: cover;
     font-family: 'Noto Sans KR';
     cursor: pointer;
 } */
-.w-btn-home {
+/* .w-btn-home_u {
     position: relative;
-    /* border: none; */
+
     display: inline-block;
     padding: 10px 30px;
-    /* border-radius: 5px; */
-    width: 300px;
+   
+    width: 250px;
     font-family: 'Noto Sans KR';
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
@@ -151,17 +152,45 @@ object-fit: cover;
     font-size: 20px;
 }
 
-.w-btn-home-outline {
+.w-btn-home-outline_u {
     position: relative;
     padding: 10px 30px;
-    /* border-radius: 5px; */
-    width: 300px;
+
+    width: 250px;
     font-family: 'Noto Sans KR';
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
     font-size: 20px;
+} */
+.w-btn-home {
+    position: relative;
+    /* border: none; */
+    display: inline-block;
+    padding: 10px 30px;
+    /* border-radius: 5px; */
+    width: 225px;
+    height: 50px;
+    font-family: 'Noto Sans KR';
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    font-size: 15px;
+}
+
+.w-btn-home-outline {
+    position: relative;
+    padding: 10px 30px;
+    /* border-radius: 5px; */
+    width: 225px;
+    font-family: 'Noto Sans KR';
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    font-size: 15px;
 }
 
 .w-btn-home-color {
@@ -182,23 +211,23 @@ object-fit: cover;
 
 
 .w-btn-home:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
+    letter-spacing: 1px;
+    transform: scale(1.1);
     cursor: pointer;
 }
 
 .w-btn-home-outline:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
+    letter-spacing: 1px;
+    transform: scale(1.1);
     cursor: pointer;
 }
 
 .w-btn-home:active {
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 
 .w-btn-home-outline:active {
-    transform: scale(1.5);
+    transform: scale(1.3);
 }
 
 

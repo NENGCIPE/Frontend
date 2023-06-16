@@ -100,10 +100,10 @@ const Recommend = () => {
 
             <div className='GPT_container'>
                 <div className='video_background_rec'>
-                    {/* <video muted autoPlay loop className='background_video_rec'>
+                    <video muted autoPlay loop className='background_video_rec'>
                         <source src="../assets/back_main.mp4" type="video/mp4" />
-                    </video> */}
-                    <div className='background_video_rec_x'></div>
+                    </video>
+                    {/* <div className='background_video_rec_x'></div> */}
                 </div>
                 <div className='GPT_title'data-aos="fade-up">
                     {/* <h1 className='title'>How about?</h1> */}

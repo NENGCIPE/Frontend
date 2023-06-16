@@ -28,8 +28,8 @@ function Scrap() {
     return (
         <div className='Scrap'>
             {/* <div className='background_SCRAP'></div> */}
-            <div className='Scrap_page_name' data-aos="fade-up">
-                <p1 className='page_name_1'  >스크랩한 레시피를 잊지으신건 아니시죠?</p1><br />
+            <div className='Scrap_page_name' data-aos="fade-right">
+                <p1 className='page_name_1'  >스크랩한 레시피를 잊으신건 아니시죠?</p1><br />
                 {/* <img className='rememberme' alt='이미지' src='../assets/rememberme.png' /> */}
                 {/* <div className="title_p">스크랩한 레시피를 잊지마세요!</div> */}
                 {/* <div className='scrap_title_box'>SCRAP!</div> */}
