@@ -290,7 +290,7 @@
 .modal_content {
     background-color: white;
     width: 1200px;
-    height: 900px;
+    height: 600px;
     text-align: center;
     position: relative;
     border-radius: 10px;
@@ -302,16 +302,17 @@
 
 .item_modal_title {
     font-family: 'Noto Sans KR';
+    margin-bottom: 50px;
 }
 
 .item_modal_content {
     background-color: white;
-    padding: 100px 500px;
+    padding: 50px 350px;
     text-align: center;
     position: relative;
     border-radius: 10px;
     width: 500px;
-    max-height: 800px;
+    max-height: 600px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 3px 6px rgba(0,0,0,0.23);
     display: flex;
     flex-direction: column;
@@ -556,6 +557,24 @@
     font-size: 30px;
     cursor: pointer;
     margin-left: 10px;
+}
+
+.recipe_loading{
+    width: 400px;
+    margin-top: -40px;
+    z-index: -1;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    margin-left: 460px;
+
+}
+.recipeloading{
+    justify-content: center;
+    text-align: center;
+    margin-top: -70px;
+    margin-bottom: 100px;
 }
 
 .recipe_list {

@@ -37,6 +37,8 @@ function Nengjanggo() {
     const [itemModal, setItemModal] = useState(false);
     const [image, setImage] = useState("");
     const webcamRef = useRef(null);
+    const [loading_recipe, setLoading_recipe] = useState(false);
+
     const capture = () => {
         const imageSrc = webcamRef.current.getScreenshot();
         setImage(imageSrc)
@@ -164,11 +166,13 @@ function Nengjanggo() {
         getIngred().then(result => setFridgeList(result));
 
         const getRecipe = async () => {
+            setLoading_recipe(true);
             const { data } = await axios.get("https://nengcipe-server.store/api/recipes/all", {
                 headers: {
                     Authorization: sessionStorage.getItem('jwt')
                 }
             })
+            setLoading_recipe(false);
             return data.result;
         }
         getRecipe().then(result => setRecipeList(result));
@@ -311,34 +315,13 @@ function Nengjanggo() {
             <div className='search_recipe'>
                 <h3 className='nengjanggo_title'><BsSearch /> 내 재료로 할 수 있는 레시피 <IoReloadCircle onClick={reloadRecipe} className='btn_reload'/> </h3>
                 
-                {/* <div className='select_ingredients'>
-                    재료 선택 :
-                    <button className='btn_addfood' onClick={() => setIngredModal(true)}>+</button>
-                    <div className={ingredModal ? 'modal' : 'modal_hidden'}>
-                        <div className='modal_overlay'></div>
-                        <div className='ingred_modal_content'>
-                            <h1 className='ingred_modal_title'>재료 선택</h1>
-                            <div className='ingred_modal_list_container'>
-                                <div className='ingred_modal_list'>
-                                    {fridgeList.map((item, index) => (
-                                        <CartList name={item.ingredName} count={item.quantity} handleCheck={handleCheck} />
-                                    ))}
-                                </div>
-                                <div className='ingred_selected_list_container'>
-                                    <p>선택된 재료</p>
-                                    <div className='ingred_selected_list'>
-                                        {checkedList.map((item, index) => (
-                                            <div className='selected_item' key={index}>
-                                                <span>{item}</span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                            <button className='btn_close' onClick={() => setIngredModal(false)}>닫기</button>
+                {loading_recipe && (
+                    <div className='recipe_loading'>
+                        <img className='openai_image_loading' alt='이미지' src='../assets/Loading_icon.gif' />
+                        <p className="recipeloading">레시피를 찾아보는 중이에요...</p>
                         </div>
-                    </div>
-                </div> */}
+                )}
+
                 <div className='recipe_list'>
                     {recipeList && recipeList.map((item, index) => (
                         <div className='recipelist_container' onClick={() => navigate(`/recipe/${item.recipeId}`)}>
