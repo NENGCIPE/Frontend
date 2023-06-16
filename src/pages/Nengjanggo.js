@@ -176,9 +176,9 @@ function Nengjanggo() {
 
     return (
         <div className='Nengjanggo'>
-            <div className='background_NENG'>
-                <h1 className='NENG_titile' data-aos="fade-up">NENGCIPE</h1>
-            </div>
+            {/* <div className='background_NENG'>
+                <h1 className='NENG_title' data-aos="fade-up">NENGCIPE</h1>
+            </div> */}
             <div className='add_item'>
             <button class="w-btn w-btn-color" type="button"onClick={() => setItemModal(true)}>재료 추가
             </button>

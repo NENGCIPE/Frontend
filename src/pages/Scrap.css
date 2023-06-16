@@ -1,0 +1,84 @@
+.Scrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  /* width: 1400px; */
+  
+  /* height: 750px; */
+}
+.background_SCRAP {
+  width: 1520px;
+  height: 400px;
+  background-color: black;
+  object-fit: cover;
+  margin-top: -75px;
+  position: relative;
+  z-index: -1;
+  margin-bottom: -350px;
+}
+
+.Scrap_page_name {
+  color: white;
+  width: 1400px;
+  height: 350px;
+  /* background-image: url('/public/assets/nengjanggo_back.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* color: white; */
+  margin-top: 0px;
+  margin-bottom: 100px;
+  /* margin-top: 100px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+.page_name_1{
+  margin-bottom: -40px;
+  margin-top: -25px
+}
+.rememberme{
+  width: 800px;
+  margin-bottom: -250px;
+}
+
+.title_p {
+  /* margin-top: -100px; */
+  font-size: 20px;
+  margin-left: -400px;
+}
+.scrap_title_box{
+  margin-top: -55px;
+  margin-left: 600px;
+  width: 150px;
+  height: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+  background-color: rgb(255, 196, 0);
+  border: 3px solid rgb(0, 0, 0);
+  padding: 7px;
+  text-align: center;
+  border-radius: 10px;
+  transform: rotate(-15deg)
+}
+
+.scrap_list {
+  display: grid;
+  grid-template-columns: repeat(3, 420px);
+  grid-template-rows: repeat(3, 420px);
+  margin-bottom: 100px;
+  padding: 0px;
+  /* background-color: rgba(155,155,155,0.2); */
+  border-radius: 0px;
+}
+
+.scrap_container {
+  height: 320px;
+  display: flex;    
+  margin-bottom: 100px;
+}
