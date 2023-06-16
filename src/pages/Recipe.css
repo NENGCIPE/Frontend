@@ -1,4 +1,7 @@
+
+
 .Recipe_container{
+  font-family: 'GowunDodum-Regular';
   margin-top: 75px;
   display: flex;
   flex-direction: column;
@@ -11,7 +14,7 @@
     flex-direction: row;
     background-color: rgb(255, 255, 255, 0.9);
     padding-left: 50px;
-    font-family: Arial, sans-serif;
+    /* font-family: Arial, sans-serif; */
   }
   .info_top{
     width: 1510px;

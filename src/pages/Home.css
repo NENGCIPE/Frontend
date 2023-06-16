@@ -8,10 +8,17 @@
 
 @font-face {
     font-family: 'hopang';
-    font-weight: 400;
-    src: url('/public/fonts/SDSamliphopangcheBasic.otf') format('woff2'),
-        url('/public/fonts/SDSamliphopangcheBasic.otf') format('woff'),
-        url('/public/fonts/SDSamliphopangcheBasic.otf') format('truetype');
+    font-weight: 600;
+    src: url('/public/fonts/G_Bold.otf') format('woff2'),
+        url('/public/fonts/G_Bold.otf') format('woff'),
+        url('/public/fonts/G_Bold.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'GowunDodum-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .home {
@@ -98,7 +105,7 @@ object-fit: cover;
 .nengcipe_info_context {
     font-size: 40px;
     margin-top: -20px;
-    font-family: 'hopang';
+    font-family: 'GowunDodum-Regular';
 }
 
 .nengcipe_info_btn {
@@ -235,6 +242,7 @@ object-fit: cover;
 .home_section2 {
     width: 1500px;
     height: 1000px;
+    font-family: 'GowunDodum-Regular';
     background-color: white;
     display: flex;
     justify-content: right;
@@ -280,8 +288,9 @@ object-fit: cover;
     /* animation: 4s ease-in-out loadEffect2; */
     text-align: left;
     font-size: 50px;
-    font-family: 'hopang';
-    font-weight: 200;
+    font-family: 'GowunDodum-Regular';
+    color: rgb(45, 45, 45);
+    font-weight: 600;
 }
 .home_section2 {
     width: 1520px;
@@ -313,8 +322,8 @@ object-fit: cover;
     color: white;
     text-align: center;
     font-size: 50px;
-    font-family: 'hopang';
-    font-weight: 400;
+    font-family: 'GowunDodum-Regular';
+    font-weight: 600;
 }
 .home_section3_text{
     background-color: rgb(0, 0, 0, 0.05) ;
@@ -348,7 +357,7 @@ object-fit: cover;
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    font-family: 'hopang';
+    font-family: 'GowunDodum-Regular';
     font-weight: 600;
 }
 
@@ -369,9 +378,10 @@ object-fit: cover;
     justify-content: center;
 }
 .home_section_2_txt{
-    padding: 100px;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.1);
+    font-family: 'GowunDodum-Regular';
+    padding: 90px;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.3);
 }
 .home_section4_intro_below{
     margin-top: -40px;
