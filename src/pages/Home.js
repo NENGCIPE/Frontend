@@ -57,8 +57,8 @@ function Home() {
                             </div>
 
                             <div className='nengcipe_info_btn' data-aos="fade-left">
-                                {/* <button class="w-btn-home w-btn-color" type="button" onClick={chkAuth}>nengcipe start now</button>
-                                <button class="w-btn-home-outline w-btn-color-outline" type="button"  onClick={chkAuth_2}>nengcipe user guide</button> */}
+                                <button class="w-btn-home w-btn-color" type="button" onClick={chkAuth}>nengcipe start now</button>
+                                <button class="w-btn-home-outline w-btn-color-outline" type="button"  onClick={chkAuth_2}>nengcipe user guide</button>
                                 
                             </div>
                             
