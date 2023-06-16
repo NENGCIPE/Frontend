@@ -7,7 +7,6 @@
         url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
 .back_img{
-    margin-top: 75px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +32,7 @@
 .background_video_rec_x {
     width: 1520px;
     height: 900px;
-    background-color: rgb(127, 121, 121);
+    background-color: black;
     object-fit: cover;
     margin-top: -75px;
     position: relative;
