@@ -1,6 +1,6 @@
 .card_container {
-    width: 380px;
-    height: 380px;
+    width: 330px;
+    height: 330px;
     box-shadow: 8px 8px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -10,8 +10,8 @@
 
 .card_img {
 /*     position: relative; */
-    width: 380px;
-    height: 380px;
+    width: 330px;
+    height: 330px;
     object-fit: cover;
 /*     z-index: 1; */
 }
@@ -19,7 +19,7 @@
 .card_info {
     position: relative;
     display: flex;
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Noto Sans KR';
     margin-top: -88px;
     padding: 12px;
@@ -29,8 +29,9 @@
 }
 
 .card_title{
+    margin-top: 9px;
     margin-left: 10px;
-    width: 350px;
-    height: 60px;
+    width: 320px;
+    height: 50px;
     overflow: hidden;
 }
