@@ -36,11 +36,6 @@ function Scrap() {
                     </div>
                 ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
         </div>
     );
 }
