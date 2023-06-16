@@ -1,0 +1,24 @@
+.ingredient_remove {
+    position: absolute;
+    margin-left: 100px;
+    margin-bottom: 150px;
+}
+
+.ingredient_icon_remove {
+    width: 20px;
+    cursor: pointer;
+}
+
+.ingredient_icon {
+    width: 40px;
+}
+
+.ingredient_name {
+    font-size: 15px;
+    font-family: 'Noto Sans KR';
+}
+
+.ingredient_amount {
+    font-size: 15px;
+    font-family: 'Noto Sans KR';
+}

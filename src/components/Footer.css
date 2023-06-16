@@ -1,0 +1,40 @@
+@font-face {
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
+    src: url('/public/fonts/NotoSansKR-Regular.otf') format('woff2'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('woff'),
+        url('/public/fonts/NotoSansKR-Regular.otf') format('truetype');
+}
+
+footer {
+    background-color: #F6F6F6;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 20px; */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .left-content {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: #b9b8b8;
+    padding-left: 400px;
+  }
+  
+  .right-content {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 13px;
+    color: #b9b8b8;
+    padding-right: 400px;
+  }
+  
+  .separator {
+    margin: 0 10px;
+    color: #b9b8b8;
+  }
+  
