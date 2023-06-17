@@ -137,7 +137,10 @@ function Nengjanggo() {
         const btMs = endDate.getTime() - stDate.getTime();
         var btDay = btMs / (1000 * 60 * 60 * 24);
 
-        if (btDay < 2) {
+        if (btDay < 0 ) {
+            return 'black';
+        }
+        else if (btDay < 2) {
             return 'red';
         }
         else if (btDay < 4) {
@@ -280,7 +283,7 @@ function Nengjanggo() {
                             <div className="content">
                                 <ul>
                                     {fridgeList && fridgeList.map((item, index) => {
-                                        if (calDdate(item.expiratioinDate) === 'orange') {
+                                        if (calDdate(item.expiratioinDate) === 'red') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
                                             return null;
@@ -298,7 +301,7 @@ function Nengjanggo() {
                             <div className="content">
                                 <ul>
                                     {fridgeList && fridgeList.map((item, index) => {
-                                        if (calDdate(item.expiratioinDate) === 'red') {
+                                        if (calDdate(item.expiratioinDate) === 'black') {
                                             return <li key={index}>{item.ingredName}</li>;
                                         } else {
                                             return null;
