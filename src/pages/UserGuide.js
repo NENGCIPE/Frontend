@@ -11,7 +11,7 @@ function UserGuide() {
 
     const handleButton1Click = () => {
         // 장수에 맞게 수정 3장인경우 3
-        if (showContainer < 3) { setShowContainer(showContainer + 1); }
+        if (showContainer < 5) { setShowContainer(showContainer + 1); }
     };
     const handleButton2Click = () => {
         if (showContainer > 1) { setShowContainer(showContainer - 1); }
@@ -48,15 +48,21 @@ function UserGuide() {
                         <div className={`container ${showContainer ? `transformed${showContainer}` : ''}`}>
                             {/* 장수에 맞게 추가 */}
                             <div className="inner">
-                                <img alt="language" src="../assets/Userguide_1.png" style={{ width: '1300px', height: 'auto' }} />
+                                <img alt="language" src="../assets/userguide_1.jpg" style={{ width: '1300px', height: 'auto' }} />
                             </div>
                             <div className="inner">
-                                <img alt="language" src="../assets/Userguide_2.png" style={{ width: '1300px', height: 'auto' }} />
+                                <img alt="language" src="../assets/userguide_2.jpg" style={{ width: '1300px', height: 'auto' }} />
                             </div>
                             <div className="inner">
-                                <img alt="language" src="../assets/Userguide_3.png" style={{ width: '1300px', height: 'auto' }} />
+                                <img alt="language" src="../assets/userguide_3.jpg" style={{ width: '1300px', height: 'auto' }} />
                             </div>
-                        </div>
+                            <div className="inner">
+                                <img alt="language" src="../assets/userguide_4.jpg" style={{ width: '1300px', height: 'auto' }} />
+                            </div>
+                            <div className="inner">
+                                <img alt="language" src="../assets/userguide_5.jpg" style={{ width: '1300px', height: 'auto' }} />
+                                </div>
+                            </div>
                     </div>
                     <button className="btn_N" onClick={handleButton1Click}>
                         <img alt='이미지' src='../assets/arrow_right.png' style={{ width: '50px', height: '80px' }} />
