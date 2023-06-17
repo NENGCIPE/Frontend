@@ -32,7 +32,7 @@ function IngredientBox({ icon, id, name, amount, date}) {
         axios.delete(`https://nengcipe-server.store/api/users/fridge?id=${id}`, { headers: {Authorization: sessionStorage.getItem('jwt')} })
             .then(response => {
                 if(response.status === 200) {
-                    alert("냉장고 재료 삭제 성공")
+                    // alert("냉장고 재료 삭제 성공")
                     window.location.reload();
                 }
             })
@@ -66,8 +66,11 @@ function IngredientBox({ icon, id, name, amount, date}) {
         const btMs = endDate.getTime() - stDate.getTime();
         var btDay = btMs / (1000 * 60 * 60 * 24);
 
-        if (btDay < 2) {
-            return 'red';
+        if (btDay < 0) {
+            return 'black';
+        }
+        else if (btDay < 2) {
+            return 'rgb(255, 0, 0)';
         }
         else if (btDay < 4) {
             return 'orange';
@@ -121,7 +124,7 @@ function IngredientBox({ icon, id, name, amount, date}) {
                 <div className='ingredient_name'>{name}</div>
                 <div className='ingredient_amount'>{amount}</div>
             </div>
-            <Datebox color={setColor(date)}>D-{setDdate(date)}</Datebox>
+            <Datebox color={setColor(date)}>{setDdate(date) < 0 ? '만료' : `D-${setDdate(date)}`}</Datebox>
         </Container>
     );
 }
