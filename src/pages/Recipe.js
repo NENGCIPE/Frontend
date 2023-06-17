@@ -94,7 +94,7 @@ function Recipe() {
         setIsAccordionOpen(!isAccordionOpen);
         setShowMessage(true);
         console.log('Accordion')
-        const recipeLink = `https://nengcipe.com/api/recipes/${recipeID}`;
+        const recipeLink = `https://nengcipe.com/recipe/${recipeID}`;
 
         navigator.clipboard.writeText(recipeLink)
 
