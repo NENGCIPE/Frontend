@@ -67,8 +67,12 @@ function Nengjanggo() {
             (data.data.result).forEach((item) => {
                 itemlist.push({ ingredName: item[0], quantity: parseInt(item[1]) })
             })
+            setItemModal(true)
+        }).catch(() => {
+            alert("사진을 다시 캡처해주세요");
+
         })
-        setItemModal(true)
+
     }
 
     const closeItemModal = () => {
