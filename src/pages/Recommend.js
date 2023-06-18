@@ -8,6 +8,7 @@ import 'aos/dist/aos.css'
 
 const Recommend = () => {
     const [keywords, setKeywords] = useState('');
+    const [keywords_print, setKeywords_print] = useState('');
     const [loadingG, setLoadingG] = useState(false);
     const [loadingY, setLoadingY] = useState(false);
     const [responseText, setResponseText] = useState('');
@@ -26,7 +27,7 @@ const Recommend = () => {
 
 
     //gpt
-    const api_key = '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';
+    const api_key = '';
     const chatGPT = () => {
         setLoadingG(true);
 
@@ -53,7 +54,8 @@ const Recommend = () => {
                 setLoadingG(false);
                 console.log(responseG.data);
                 setResponseText(responseG.data.choices[0].message.content);
-                //setKeywords('');
+                setKeywords_print(keywords);
+                setKeywords('');
             })
             .catch((error) => {
                 setLoadingG(false);
@@ -152,7 +154,8 @@ const Recommend = () => {
                             <img className='openai_image_2' alt='이미지' src='../assets/openai2.png' />
                             Chat-GPT Result
                         </div><br />
-                        <div className="result-textbox_q">{keywords}로 만들 수 있는 요리들을 추천해줘.</div>
+                        <div className="result-textbox_q">{keywords_print}로 만들 수 있는 요리들을 추천해줘.</div>
+                        
                         <textarea className="result-textbox" value={responseText} readOnly />
                     </div>
                 )}
