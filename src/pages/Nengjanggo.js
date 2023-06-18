@@ -69,7 +69,7 @@ function Nengjanggo() {
             })
             setItemModal(true)
         }).catch(() => {
-            alert("사진을 다시 캡처해주세요");
+            alert("영수증을 다시 캡처해주세요");
         })
     }
 
